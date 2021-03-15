@@ -15,6 +15,8 @@ class RecipeActivity : AppCompatActivity() {
 
     }
 
+    // test comment
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.home -> {

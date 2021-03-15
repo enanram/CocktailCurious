@@ -18,39 +18,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!--
-        <fragment
-            android:name="com.k2eb.cocktailcurious.VirtualCupboardFragment"
-            android:id="@+id/fragment_virtual_cupboard"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <fragment
-            android:name="com.k2eb.cocktailcurious.YourMenuFragment"
-            android:id="@+id/fragment_your_menu"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <fragment
-            android:name="com.k2eb.cocktailcurious.FavouritesFragment"
-            android:id="@+id/fragment_favourites"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <fragment
-            android:name="com.k2eb.cocktailcurious.BrowseRecipesFragment"
-            android:id="@+id/fragment_browse_recipes"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
--->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView

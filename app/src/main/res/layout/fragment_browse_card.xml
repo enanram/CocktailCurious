@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_cocktail"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    tools:ignore="ExtraText">
+
+    // A card view that contains details for each search result. //
+    <RelativeLayout
+        android:id="@+id/cocktail_relative"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        // A place for a photo of the cocktail to go. //
+        <ImageView
+            android:id="@+id/cocktail_image"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/img_cocktail_placeholder" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@id/cocktail_image"
+            android:layout_alignTop="@id/cocktail_image"
+            android:layout_alignBottom="@id/cocktail_image"
+            android:layout_marginStart="8dp"
+            android:orientation="vertical">
+
+            // A layout that contains name, icons that can be
+            hidden/unhdden as necessary, and a favourites icon. //
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/cocktail_name"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="@android:color/black"
+                    android:textSize="22sp" />
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/icon_vegan_foreground"/>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/icon_mocktail_foreground"/>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/icon_star_off_foreground"/>
+            </LinearLayout>
+
+            // A field to put a short description on the cocktail. //
+            <TextView
+                android:id="@+id/cocktail_desc"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="A description of the cocktail"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="16sp" />
+
+            //Hopefully we can replace the stars in this with our own cocktail icons //
+            <RatingBar
+                android:id="@+id/cocktail_rating"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"/>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

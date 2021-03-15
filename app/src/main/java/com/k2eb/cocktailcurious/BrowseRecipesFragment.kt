@@ -11,4 +11,7 @@ import android.view.ViewGroup
  * A simple [Fragment] subclass.
  */
 class BrowseRecipesFragment : Fragment(R.layout.fragment_browse_recipes) {
+    /*
+    OnCreate { RecyclerViewAdapter to contain fragment_browse_card Views
+     */
 }

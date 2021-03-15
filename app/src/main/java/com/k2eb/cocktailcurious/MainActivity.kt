@@ -105,5 +105,24 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    /*
+    To be put in it's own class:
+    private fun cocktail() {
+        private var name: String
+        private var short_desc: String
+        private var long_desc: String
+        private var is_favourite: Boolean
+        private var is_vegan: Boolean
+        private var is_mocktail: Boolean
+        private var rating: Int
+        private var composition: ArrayList<String>
 
+        functionality }
+
+    And then in the main:
+    private var cocktail_db = ArrayListOf<cocktail()>
+
+    for drink in cocktail_db
+        if userSearchInput in cocktail_db[drink].composition.toLowerCase()
+     */
 }

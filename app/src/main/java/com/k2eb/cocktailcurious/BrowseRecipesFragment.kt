@@ -12,6 +12,9 @@ import android.widget.Button
 /**
  * A simple [Fragment] subclass.
  */
+    /*
+    OnCreate { RecyclerViewAdapter to contain fragment_browse_card Views
+     */
 class BrowseRecipesFragment : Fragment() {
 
 

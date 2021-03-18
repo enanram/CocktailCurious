@@ -30,5 +30,7 @@ class VirtualCupboardFragment : Fragment() {
             }
     }
 
+    // TODO method to add/remove ingredients to cupboard database
+
 
 }

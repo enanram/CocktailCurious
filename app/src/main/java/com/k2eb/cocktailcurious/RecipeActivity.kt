@@ -4,31 +4,32 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toolbar
+
+// a default title for the activity, in case of difficulty getting the name from the database
+const val DEFAULT_RECIPE_NAME = "Recipe Name"
 
 class RecipeActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe)
 
-        // Adds a back button in the action bar
-        actionBar?.setDisplayHomeAsUpEnabled(true)
+        val recipeName = DEFAULT_RECIPE_NAME
+
+        // adds the back button in the title bar
+        supportActionBar?.title = recipeName
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
     }
 
     // test comment
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.home -> {
-                finish()
-                return true
-            }
-        }
+        if (item.itemId == android.R.id.home) finish()
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        return true
-    }
 
 }

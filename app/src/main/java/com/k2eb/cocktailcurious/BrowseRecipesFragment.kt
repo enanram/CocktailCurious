@@ -21,11 +21,21 @@ class BrowseRecipesFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+//        val button: Button? = view?.findViewById(R.id.toRecipeButton)
+//        button?.setOnClickListener {
+//            val intent = Intent(getActivity(), RecipeActivity::class.java)
+//            startActivity(intent)
+//        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val button: Button? = view?.findViewById(R.id.toRecipeButton)
         button?.setOnClickListener {
-            val intent = Intent(context, RecipeActivity::class.java)
+            val intent = Intent(getActivity(), RecipeActivity::class.java)
             startActivity(intent)
         }
+
     }
 
     override fun onCreateView(
@@ -34,6 +44,8 @@ class BrowseRecipesFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_browse_recipes, container, false)
+
+
     }
 
     companion object {

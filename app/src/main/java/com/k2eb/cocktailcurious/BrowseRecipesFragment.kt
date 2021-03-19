@@ -7,45 +7,35 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
-
-/**
- * A simple [Fragment] subclass.
- */
-    /*
-    OnCreate { RecyclerViewAdapter to contain fragment_browse_card Views
-     */
 class BrowseRecipesFragment : Fragment() {
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-//        val button: Button? = view?.findViewById(R.id.toRecipeButton)
-//        button?.setOnClickListener {
-//            val intent = Intent(getActivity(), RecipeActivity::class.java)
-//            startActivity(intent)
-//        }
-    }
+    private lateinit var recipeAdapter: BrowseRecipesRecyclerAdapter
+    lateinit var recipeRecycler: RecyclerView
+    private var cocktailList = arrayListOf<String>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val button: Button? = view?.findViewById(R.id.card_cocktail)
-        button?.setOnClickListener {
-            val intent = Intent(getActivity(), RecipeActivity::class.java)
+        val card: Button? = view.findViewById(R.id.card_cocktail)
+        card?.setOnClickListener {
+            val intent = Intent(activity, RecipeActivity::class.java)
             startActivity(intent)
         }
-
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_browse_recipes, container, false)
-
-
+        val flater = inflater.inflate(R.layout.fragment_browse_recipes, container, false)
+        recipeRecycler = flater.findViewById(R.id.recipe_results_recycler)
+        recipeRecycler.layoutManager = LinearLayoutManager(recipeRecycler.context)
+        getList()
+        return flater
     }
 
     companion object {
@@ -57,6 +47,18 @@ class BrowseRecipesFragment : Fragment() {
             }
     }
 
+// Just some string to stick into the card view. Nothing major. //
+    private fun makeDummyList(name: String) {
+        cocktailList.add(name)
+    }
+    private fun getList() {
+        makeDummyList("Blue Lagoon")
+        makeDummyList("Pina Colada")
+        makeDummyList("Mojito")
+
+        recipeAdapter = BrowseRecipesRecyclerAdapter(cocktailList)
+        recipeRecycler.adapter = recipeAdapter
 
 
+    }
 }

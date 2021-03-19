@@ -30,7 +30,7 @@ class BrowseRecipesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val button: Button? = view?.findViewById(R.id.toRecipeButton)
+        val button: Button? = view?.findViewById(R.id.card_cocktail)
         button?.setOnClickListener {
             val intent = Intent(getActivity(), RecipeActivity::class.java)
             startActivity(intent)

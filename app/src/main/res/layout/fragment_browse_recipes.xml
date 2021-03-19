@@ -8,8 +8,8 @@
 
     <!--
     temporary button to navigate to the recipe activity
-    -->
-    <Button
+
+    //<Button
         android:id="@+id/toRecipeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,40 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
-    // The below few lines can be deleted in lieu of a top navigation
-    bar that will be constant throughout the app. //
-
-    <!--
-    <View
-        android:id="@+id/top_bar"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/purple_200"/>
-    <Button
-        android:id="@+id/hamburger"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        app:layout_constraintStart_toStartOf="@id/top_bar"
-        app:layout_constraintTop_toTopOf="@id/top_bar"
-        app:layout_constraintBottom_toBottomOf="@id/top_bar"
-        android:layout_marginStart="16dp"/>
-    <TextView
-        android:id="@+id/top_bar_text"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:layout_marginEnd="60dp"
-        app:layout_constraintStart_toEndOf="@id/hamburger"
-        app:layout_constraintTop_toTopOf="@id/top_bar"
-        app:layout_constraintBottom_toBottomOf="@id/top_bar"
-        app:layout_constraintEnd_toEndOf="@id/top_bar"
-        android:text="@string/app_title"
-        android:textSize="22sp"/>
+        -->
 
     // This is really where it's at. //
     <androidx.recyclerview.widget.RecyclerView
@@ -60,7 +27,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/top_bar"
+        app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/fragment_browse_card"/>
 
         -->

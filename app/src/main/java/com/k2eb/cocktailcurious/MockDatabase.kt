@@ -5,12 +5,16 @@ class MockDatabase {
 	var equipmentList: MutableList<Equipment>
 	var allIngredients: MutableList<Ingredient>
 	var allRecipes: MutableList<CocktailRecipe>
+	var favourites: MutableList<CocktailRecipe>
+	var yourMenu: MutableList<CocktailRecipe>
 
 	init {
 		virtualCupboard = mutableListOf()
 		equipmentList = mutableListOf()
 		allIngredients = mutableListOf()
 		allRecipes = mutableListOf()
+		favourites = mutableListOf()
+		yourMenu = mutableListOf()
 	}
 
 	fun addToCupboard(ingredient: Ingredient) {
@@ -43,6 +47,14 @@ class MockDatabase {
 
 	fun removeRecipe(recipe: CocktailRecipe) {
 		allRecipes.remove(recipe)
+	}
+
+	fun addToFavourites(cocktailRecipe: CocktailRecipe) {
+		favourites.add(cocktailRecipe)
+	}
+
+	fun removeFromFavourites(cocktailRecipe: CocktailRecipe) {
+		favourites.remove(cocktailRecipe)
 	}
 
 }

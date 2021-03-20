@@ -4,6 +4,4 @@ import android.graphics.drawable.Icon
 
 class Equipment(var name: String, var iconId: Int) {
 
-
-
 }

@@ -41,11 +41,10 @@ class CocktailRecipe(db: MockDatabase, recipeName: String, instruct: String, equ
 	 */
 	fun addIngredientAndAmount(ingredient: Ingredient, quantity: Int) {
 		if (ingredients.containsKey(ingredient)) {
-			val oldQuantity = ingredients[ingredient]!!
-			ingredients.put(ingredient, (oldQuantity + quantity))
-		} else {
-			ingredients.put(ingredient, quantity)
+			println("Ingredient already in recipe - updated amount.")
 		}
+		ingredients.put(ingredient, quantity)
+
 	}
 
 	/**

@@ -2,23 +2,31 @@ package com.k2eb.cocktailcurious
 
 import java.lang.IllegalArgumentException
 
-class CocktailRecipe(db: MockDatabase, recipeName: String, instruct: String, equipList: List<Equipment>) {
+class CocktailRecipe(
+		db: MockDatabase,
+		recipeName: String,
+		blurb: String
+//		instruct: String,
+//		equipList: List<Equipment>
+) {
 	var isFavourite: Boolean
 	var database: MockDatabase
 	var name: String
+	var recipeBlurb: String
 	// Rating out of 5 - 0 means no rating
 	var rating: Int
-	var instructions: String
-	var equipment: List<Equipment> = mutableListOf()
+//	var instructions: String
+//	var equipment: List<Equipment> = mutableListOf()
 	var ingredients: MutableMap<Ingredient, Int>
 
 	init {
 		isFavourite = false
 		database = db
 		name = recipeName
+		recipeBlurb = blurb
 		rating = 0
-		equipment = equipList
-		instructions = instruct
+//		equipment = equipList
+//		instructions = instruct
 		ingredients = mutableMapOf<Ingredient, Int>()
 	}
 

@@ -49,6 +49,7 @@
         android:id="@+id/recipe_results_recycler"
         android:layout_width="415dp"
         android:layout_height="584dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/btn_add_ingredients"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

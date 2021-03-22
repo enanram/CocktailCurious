@@ -25,8 +25,8 @@ class BrowseRecipesRecyclerAdapter(
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
 
-        holder.tvName.text = cocktails[position].cocktailName
-        holder.tvBlurb.text = cocktails[position].cocktailBlurb
+        holder.tvName.text = cocktails[position].name
+        holder.tvBlurb.text = cocktails[position].recipeBlurb
 
     }
 

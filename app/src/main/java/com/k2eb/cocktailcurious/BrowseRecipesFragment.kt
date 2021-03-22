@@ -50,8 +50,9 @@ class BrowseRecipesFragment : Fragment() {
 
 // Just some string to stick into the card view. Nothing major. //
     private fun makeDummyList() {
-        val bluLag = CocktailRecipe("Blue Lagoon", "Refreshing and blue")
-        val pinCol = CocktailRecipe("Pina Colada", "If you like 'em, and rain too")
+        val db = MockDatabase()
+        val bluLag = CocktailRecipe(db,"Blue Lagoon", "Refreshing and blue")
+        val pinCol = CocktailRecipe(db, "Pina Colada", "If you like 'em, and rain too")
         cocktailList.add(bluLag)
         cocktailList.add(pinCol)
 

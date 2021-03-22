@@ -49,12 +49,15 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@mipmap/icon_vegan_foreground"/>
+                    android:src="@mipmap/icon_vegan_foreground"
+                    android:visibility="visible"/>
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@mipmap/icon_mocktail_foreground"/>
+                    android:src="@mipmap/icon_mocktail_foreground"
+                    android:visibility="gone"/>
                 <ImageView
+                    android:id="@+id/cocktail_favourite"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@mipmap/icon_star_off_foreground"/>

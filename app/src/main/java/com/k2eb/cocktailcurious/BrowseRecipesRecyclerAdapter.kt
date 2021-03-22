@@ -16,6 +16,10 @@ class BrowseRecipesRecyclerAdapter(
 
     lateinit var mcxt: Context
 
+    override fun getItemCount(): Int {
+        return cocktails.size
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         mcxt = parent.context
         val inflater = LayoutInflater.from(mcxt)
@@ -25,13 +29,16 @@ class BrowseRecipesRecyclerAdapter(
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
 
+        holder.ivImage.setImageResource(cocktails[position].image)
         holder.tvName.text = cocktails[position].name
         holder.tvBlurb.text = cocktails[position].recipeBlurb
+        holder.ratRatingBar.numStars = cocktails[position].rating
 
-    }
-
-    override fun getItemCount(): Int {
-        return cocktails.size
+        if (cocktails[position].isFavourite) {
+            holder.ivFavourite.setImageResource(R.mipmap.icon_star_on_foreground)
+        } else {
+            holder.ivFavourite.setImageResource(R.mipmap.icon_star_off_foreground)
+        }
     }
 
     class RecipeViewHolder(itemView: View) :
@@ -40,7 +47,6 @@ class BrowseRecipesRecyclerAdapter(
         var tvName: TextView = itemView.findViewById(R.id.cocktail_name)
         var tvBlurb: TextView = itemView.findViewById(R.id.cocktail_blurb)
         var ratRatingBar: RatingBar = itemView.findViewById(R.id.cocktail_rating)
-
+        var ivFavourite: ImageView = itemView.findViewById(R.id.cocktail_favourite)
     }
-
 }

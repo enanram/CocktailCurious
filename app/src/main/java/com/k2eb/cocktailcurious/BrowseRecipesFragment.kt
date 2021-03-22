@@ -15,6 +15,7 @@ class BrowseRecipesFragment : Fragment() {
     private lateinit var recipeAdapter: BrowseRecipesRecyclerAdapter
     lateinit var recipeRecycler: RecyclerView
     private var cocktailList = arrayListOf<CocktailRecipe>()
+    var favouritesList = mutableListOf<CocktailRecipe>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -34,8 +35,11 @@ class BrowseRecipesFragment : Fragment() {
         val flater = inflater.inflate(R.layout.fragment_browse_recipes, container, false)
         recipeRecycler = flater.findViewById(R.id.recipe_results_recycler)
         recipeRecycler.layoutManager = LinearLayoutManager(recipeRecycler.context)
+
         // Insert
         makeDummyList()
+        recipeRecycler.adapter = BrowseRecipesRecyclerAdapter(cocktailList)
+
         return flater
     }
 
@@ -52,13 +56,25 @@ class BrowseRecipesFragment : Fragment() {
      * Just some string to stick into the card view. Nothing major.
      */
     private fun makeDummyList() {
+
         val db = MockDatabase()
-        val bluLag = CocktailRecipe(db,"Blue Lagoon", "Refreshing and blue")
-        val pinCol = CocktailRecipe(db, "Pina Colada", "If you like 'em, and rain too")
+        val bluLag = CocktailRecipe(db, "Blue Lagoon", "Refreshing and blue.")
+        val pinCol = CocktailRecipe(db, "Pina Colada", "If you like 'em, and rain too.")
+        val mojito = CocktailRecipe(db, "Mojito", "Minty fresh goodness!")
+        val maiTai = CocktailRecipe(db, "Mai Tai", "Camp and fruity. You are what you drink.")
+        val grasshop = CocktailRecipe(db, "Grasshopper", "Like mint choc chip ice cream!")
+        mojito.addToFavourites()
+        pinCol.addToFavourites()
         cocktailList.add(bluLag)
         cocktailList.add(pinCol)
+        cocktailList.add(mojito)
+        cocktailList.add(maiTai)
+        cocktailList.add(grasshop)
 
-        recipeAdapter = BrowseRecipesRecyclerAdapter(cocktailList)
-        recipeRecycler.adapter = recipeAdapter
+        for (item in cocktailList) {
+            if (item.isFavourite) {
+                favouritesList.add(item)
+            }
+        }
     }
 }

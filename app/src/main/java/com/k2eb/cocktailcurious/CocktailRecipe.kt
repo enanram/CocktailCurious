@@ -18,6 +18,7 @@ class CocktailRecipe(
 //	var instructions: String
 //	var equipment: List<Equipment> = mutableListOf()
 	var ingredients: MutableMap<Ingredient, Int>
+	var image: Int
 
 	init {
 		isFavourite = false
@@ -28,6 +29,7 @@ class CocktailRecipe(
 //		equipment = equipList
 //		instructions = instruct
 		ingredients = mutableMapOf<Ingredient, Int>()
+		image = R.drawable.the_blue_lagoon_cocktail
 	}
 
 	/**

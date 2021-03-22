@@ -34,6 +34,7 @@ class BrowseRecipesFragment : Fragment() {
         val flater = inflater.inflate(R.layout.fragment_browse_recipes, container, false)
         recipeRecycler = flater.findViewById(R.id.recipe_results_recycler)
         recipeRecycler.layoutManager = LinearLayoutManager(recipeRecycler.context)
+        // Insert
         getList()
         return flater
     }

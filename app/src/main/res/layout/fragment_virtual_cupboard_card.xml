@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_ingredient"
+    android:layout_gravity="top"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="ExtraText">
+
+    <LinearLayout
+        android:id="@+id/ingredient_linear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="355dp"
+            android:layout_height="match_parent"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="@string/ingredient"
+            android:textSize="24sp" />
+
+        <Button
+            android:layout_width="56dp"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/ic_menu_delete"
+            app:backgroundTint="@color/black" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

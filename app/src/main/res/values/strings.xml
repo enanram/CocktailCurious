@@ -16,11 +16,19 @@
     <string name="splash_screen_image">Splash</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Blue Lagoon Recipe String Values -->
     <string name="app_title">Cocktail Curious</string>
     <string name="description"><b>Description:</b> The Blue Lagoon is a refreshing, three-ingredient cocktail containing vodka, blue curaçao and lemonade.</string>
     <string name="Equipment"><b>Equipment:</b> \n -Shaker</string>
     <string name="Ingredients"><b>Ingredients:</b> \nVodka - 35ml\nBlue Curacao - 15ml\nSoda - 30ml</string>
     <string name="Instructions"><b>Instructions:</b> \n<b>1)</b> Add ingredients to shaker with ice. \n<b>2)</b> Shake and serve</string>
-    <string name="submit_view"><b>Submit View:</b></string>
+    <string name="submit_view"><b>Submit Rating:</b></string>
+
+    <!-- Pina Colada Recipe String Values -->
+    <string name="description_PC"><b>Description:</b> This tropical cocktail — a mix of rum, coconut, pineapple and lime juices—dates to the 1950s and has been satisfying vacationers and Tiki aficionados since.</string>
+    <string name="Equipment_PC"><b>Equipment:</b> \n -Blender</string>
+    <string name="Ingredients_PC"><b>Ingredients:</b> \nWhite Rum - 35ml\nFrozen Pineapple Chunks - 450g\nCoconut Milk - 230ml</string>
+    <string name="Instructions_PC"><b>Instructions:</b> \n<b>1)</b> Add ingredients to blender and blend until smooth. \n<b>2)</b> Pour into glass and serve with umbrella. Surfs Up! </string>
 
 </resources>

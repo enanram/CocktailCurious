@@ -12,4 +12,8 @@ class CocktailRecipe(
         this.isFavourite = !isFavourite
         return isFavourite
     }
+
+    private fun addIngredient(ingredient: Ingredient) {
+        cocktailIngredients.add(ingredient)
+    }
 }

@@ -1,12 +1,16 @@
 package com.k2eb.cocktailcurious
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 
 class BrowseRecipesRecyclerAdapter(
@@ -39,14 +43,23 @@ class BrowseRecipesRecyclerAdapter(
         } else {
             holder.ivFavourite.setImageResource(R.mipmap.icon_star_off_foreground)
         }
+
+        holder.cardView.setOnClickListener {
+            val intent = Intent(mcxt, RecipeActivity::class.java)
+            intent.putExtra("passThis", cocktails[position].name)
+            mcxt.startActivity(intent)
+            Log.d("this", cocktails[position].name)
+        }
     }
 
     class RecipeViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
+        var cardView: CardView = itemView.findViewById(R.id.card_cocktail)
         var ivImage: ImageView = itemView.findViewById(R.id.cocktail_image)
         var tvName: TextView = itemView.findViewById(R.id.cocktail_name)
         var tvBlurb: TextView = itemView.findViewById(R.id.cocktail_blurb)
         var ratRatingBar: RatingBar = itemView.findViewById(R.id.cocktail_rating)
         var ivFavourite: ImageView = itemView.findViewById(R.id.cocktail_favourite)
     }
+
 }

@@ -60,4 +60,6 @@ class VirtualCupboardFragment : Fragment() {
             isEmpty = true
         }
     }
+
+    fun onClic
 }

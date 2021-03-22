@@ -62,11 +62,11 @@
 
             // A field to put a short description on the cocktail. //
             <TextView
-                android:id="@+id/cocktail_desc"
+                android:id="@+id/cocktail_blurb"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="A description of the cocktail"
+                android:text="A short description of the cocktail"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="16sp" />
 

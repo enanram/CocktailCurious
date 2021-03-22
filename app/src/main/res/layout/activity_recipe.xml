@@ -1,131 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".RecipeActivity"
     tools:ignore="ExtraText">
 
-    <TextView
-        android:id="@+id/RecipeView"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:background="#C99DD1"
-        android:gravity="center"
-        android:text="The Blue Lagoon"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/BlueLagoonPicture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/the_blue_lagoon_cocktail" />
 
-    <ImageView
-        android:id="@+id/Arrow"
-        android:layout_width="32dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginBottom="21dp"
-        android:contentDescription="Backwards Arrow"
-        app:layout_constraintBottom_toBottomOf="@+id/RecipeView"
-        app:layout_constraintEnd_toStartOf="@+id/BlueLagoonPicture"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_media_rew" />
+        <ImageView
+            android:id="@+id/Share"
+            android:layout_width="50dp"
+            android:layout_height="67dp"
+            app:layout_constraintBottom_toBottomOf="@+id/BlueLagoonPicture"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.545"
+            app:layout_constraintStart_toEndOf="@+id/BlueLagoonPicture"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.361"
+            app:srcCompat="@android:drawable/ic_menu_share" />
 
-    <ImageView
-        android:id="@+id/BlueLagoonPicture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:gravity="center_horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RecipeView"
-        app:srcCompat="@drawable/the_blue_lagoon_cocktail" />
+        <ImageView
+            android:id="@+id/Favourite"
+            android:layout_width="50dp"
+            android:layout_height="67dp"
+            app:layout_constraintBottom_toBottomOf="@+id/BlueLagoonPicture"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.545"
+            app:layout_constraintStart_toEndOf="@+id/BlueLagoonPicture"
+            app:layout_constraintTop_toBottomOf="@+id/Share"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
 
-    <ImageView
-        android:id="@+id/Share"
-        android:layout_width="0dp"
-        android:layout_height="67dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/BlueLagoonPicture"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/BlueLagoonPicture"
-        app:layout_constraintTop_toTopOf="@+id/BlueLagoonPicture"
-        app:srcCompat="@android:drawable/ic_menu_share" />
+        <TextView
+            android:id="@+id/Description"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:text="@string/description"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/BlueLagoonPicture" />
 
-    <ImageView
-        android:id="@+id/Favourite"
-        android:layout_width="0dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="163dp"
-        android:layout_marginBottom="164dp"
-        app:layout_constraintBottom_toBottomOf="@+id/BlueLagoonPicture"
-        app:layout_constraintEnd_toEndOf="@+id/Share"
-        app:layout_constraintStart_toStartOf="@+id/Share"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
+        <TextView
+            android:id="@+id/Instructions"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Instructions"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Description" />
 
-    <TextView
-        android:id="@+id/Description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="@string/description"
-        android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BlueLagoonPicture" />
+        <TextView
+            android:id="@+id/Equipment"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Equipment"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Instructions" />
 
-    <TextView
-        android:id="@+id/Instructions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:text="@string/Instructions"
-        android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Equipment" />
+        <TextView
+            android:id="@+id/Ingredients"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Ingredients"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Equipment" />
 
-    <TextView
-        android:id="@+id/Equipment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/Equipment"
-        android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Ingredients" />
+        <TextView
+            android:id="@+id/SubmitView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/submit_view"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Ingredients" />
 
-    <TextView
-        android:id="@+id/Ingredients"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:text="@string/Ingredients"
-        android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Description" />
+        <RatingBar
+            android:id="@+id/Rating"
+            style="@style/customRatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/SubmitView"
+            app:layout_constraintTop_toBottomOf="@+id/Ingredients" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/SubmitView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
-        android:text="@string/submit_view"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+</ScrollView>
 
-    <RatingBar
-        android:id="@+id/Rating"
-        style="?android:attr/ratingBarStyleIndicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toBottomOf="@+id/SubmitView"
-        app:layout_constraintStart_toEndOf="@+id/SubmitView" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+

@@ -48,7 +48,9 @@ class BrowseRecipesFragment : Fragment() {
             }
     }
 
-// Just some string to stick into the card view. Nothing major. //
+    /**
+     * Just some string to stick into the card view. Nothing major.
+     */
     private fun makeDummyList() {
         val db = MockDatabase()
         val bluLag = CocktailRecipe(db,"Blue Lagoon", "Refreshing and blue")

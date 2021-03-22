@@ -9,8 +9,13 @@ import android.view.ViewGroup
 
 
 class VirtualCupboardFragment : Fragment() {
+
+    var isEmpty = true
+    var cupboardList = mutableListOf<Ingredient>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //cupboardList = mutableListOf<Ingredient>()
     }
 
     override fun onCreateView(
@@ -32,4 +37,27 @@ class VirtualCupboardFragment : Fragment() {
 
     // TODO method to add/remove ingredients to cupboard database
 
+    /**
+     * Add ingredient
+     * Include check for empty cupboard
+     */
+
+    fun addIngredient(ingredient: Ingredient) {
+        cupboardList.add(ingredient)
+        if (cupboardList.size > 0) {
+            isEmpty = false
+        }
+    }
+
+    /**
+     * Remove ingredient
+     * Include check for empty cupboard
+     */
+
+    fun removeIngredient(ingredient: Ingredient) {
+        cupboardList.remove(ingredient)
+        if (cupboardList.size == 0) {
+            isEmpty = true
+        }
+    }
 }

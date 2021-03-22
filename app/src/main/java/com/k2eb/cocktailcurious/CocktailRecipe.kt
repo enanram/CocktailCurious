@@ -1,10 +1,10 @@
 package com.k2eb.cocktailcurious
 
 class CocktailRecipe(
-    private var cocktailName: String,
-    private var cocktailBlurb: String
+    var cocktailName: String,
+    var cocktailBlurb: String
 ) {
-    private var cocktailRating: Int = 0
+    var cocktailRating: Int = 0
     lateinit var cocktailDescription: String
     var isFavourite: Boolean = false
     var cocktailIngredients = arrayListOf<Ingredient>()

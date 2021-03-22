@@ -14,7 +14,7 @@ class BrowseRecipesFragment : Fragment() {
 
     private lateinit var recipeAdapter: BrowseRecipesRecyclerAdapter
     lateinit var recipeRecycler: RecyclerView
-    private var cocktailList = arrayListOf<String>()
+    private var cocktailList = arrayListOf<CocktailRecipe>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,7 +35,7 @@ class BrowseRecipesFragment : Fragment() {
         recipeRecycler = flater.findViewById(R.id.recipe_results_recycler)
         recipeRecycler.layoutManager = LinearLayoutManager(recipeRecycler.context)
         // Insert
-        getList()
+        makeDummyList()
         return flater
     }
 
@@ -49,17 +49,13 @@ class BrowseRecipesFragment : Fragment() {
     }
 
 // Just some string to stick into the card view. Nothing major. //
-    private fun makeDummyList(name: String) {
-        cocktailList.add(name)
-    }
-    private fun getList() {
-        makeDummyList("Blue Lagoon")
-        makeDummyList("Pina Colada")
-        makeDummyList("Mojito")
+    private fun makeDummyList() {
+        val bluLag = CocktailRecipe("Blue Lagoon", "Refreshing and blue")
+        val pinCol = CocktailRecipe("Pina Colada", "If you like 'em, and rain too")
+        cocktailList.add(bluLag)
+        cocktailList.add(pinCol)
 
         recipeAdapter = BrowseRecipesRecyclerAdapter(cocktailList)
         recipeRecycler.adapter = recipeAdapter
-
-
     }
 }

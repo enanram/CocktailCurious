@@ -14,7 +14,7 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="splash_screen_image">Splash</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="question">What\'s in your cupboard?</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="app_title">Cocktail Curious</string>
     <string name="description"><b>Description:</b> The Blue Lagoon is a refreshing, three-ingredient cocktail containing vodka, blue curaçao and lemonade.</string>

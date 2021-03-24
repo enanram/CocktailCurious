@@ -30,6 +30,21 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/fragment_browse_card"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:visibility="invisible"
+        android:clickable="true"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/temp_blue_lagoon_button" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/temp_blue_lagoon_button"
+        android:id="@+id/temp_pina_colada_button" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,12 +1,15 @@
 package com.k2eb.cocktailcurious
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 
 class BrowseRecipesRecyclerAdapter(
@@ -24,9 +27,18 @@ class BrowseRecipesRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
-
         holder.tvName.text = cocktails[position].name
         holder.tvBlurb.text = cocktails[position].recipeBlurb
+        holder.cardView.setOnClickListener(View.OnClickListener {
+            fun onClick(view: View) {
+                val intent = Intent(mcxt, RecipeActivity::class.java)
+//            var title: TextView = view.findViewById(R.id.cocktail_name)
+//            cocktailList.forEach {
+//                if (it.name == title.)
+//            }
+                mcxt.startActivity(intent)
+            }
+        })
 
     }
 
@@ -36,6 +48,7 @@ class BrowseRecipesRecyclerAdapter(
 
     class RecipeViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
+        var cardView: CardView = itemView.findViewById(R.id.card_cocktail)
         var ivImage: ImageView = itemView.findViewById(R.id.cocktail_image)
         var tvName: TextView = itemView.findViewById(R.id.cocktail_name)
         var tvBlurb: TextView = itemView.findViewById(R.id.cocktail_blurb)

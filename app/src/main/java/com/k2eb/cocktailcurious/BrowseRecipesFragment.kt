@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -16,12 +17,25 @@ class BrowseRecipesFragment : Fragment() {
     lateinit var recipeRecycler: RecyclerView
     private var cocktailList = arrayListOf<CocktailRecipe>()
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val card: Button? = view.findViewById(R.id.card_cocktail)
-        card?.setOnClickListener {
+//        card?.setOnClickListener {
+//            intent = Intent(activity, RecipeActivity::class.java)
+////            var title: TextView = view.findViewById(R.id.cocktail_name)
+////            cocktailList.forEach {
+////                if (it.name == title.)
+////            }
+//            startActivity(intent)
+//        }
+
+        val pButton: Button? = view.findViewById(R.id.temp_blue_lagoon_button)
+        pButton?.setOnClickListener {
             val intent = Intent(activity, RecipeActivity::class.java)
+//            intent.putExtra("Blue Lagoon", cocktailList[0])
             startActivity(intent)
+
         }
     }
 
@@ -52,9 +66,8 @@ class BrowseRecipesFragment : Fragment() {
      * Just some string to stick into the card view. Nothing major.
      */
     private fun makeDummyList() {
-        val db = MockDatabase()
-        val bluLag = CocktailRecipe(db,"Blue Lagoon", "Refreshing and blue")
-        val pinCol = CocktailRecipe(db, "Pina Colada", "If you like 'em, and rain too")
+        val bluLag = CocktailRecipe("Blue Lagoon", "Refreshing and blue")
+        val pinCol = CocktailRecipe("Pina Colada", "If you like 'em, and rain too")
         cocktailList.add(bluLag)
         cocktailList.add(pinCol)
 

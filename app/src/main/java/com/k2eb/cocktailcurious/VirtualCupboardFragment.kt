@@ -9,8 +9,12 @@ import android.view.ViewGroup
 
 
 class VirtualCupboardFragment : Fragment() {
+
+    var isEmpty = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val cupboardList = mutableListOf<Ingredient>()
     }
 
     override fun onCreateView(
@@ -31,5 +35,14 @@ class VirtualCupboardFragment : Fragment() {
     }
 
     // TODO method to add/remove ingredients to cupboard database
+    /**
+     * Add ingredient
+     * include check for empty cupboard
+     */
+
+    /**
+     * remove ingredient
+     * include check for empty cupboard
+     */
 
 }

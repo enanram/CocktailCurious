@@ -81,6 +81,9 @@ class CocktailRecipe(
 //		}
 	}
 
+	/**
+	 * each element of the object that will be used by other classes is placed within a parcel
+	 */
 	override fun writeToParcel(parcel: Parcel, flags: Int) {
 		parcel.writeString(name)
 		parcel.writeInt(image)

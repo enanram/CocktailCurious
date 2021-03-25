@@ -41,11 +41,15 @@ class MainActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-        // Adds a back arrow when the menu is open
+        /**
+         * Adds a back arrow when the menu is open
+          */
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        //moves the user to another fragment depending on which item is selected in the main activity
-        //the activity representing the menu that appears from the side
+        /**
+         * moves the user to another fragment depending on which item is selected in the main activity
+         * the activity representing the menu that appears from the side
+         */
         navView.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.nav_virtual_cupboard -> {

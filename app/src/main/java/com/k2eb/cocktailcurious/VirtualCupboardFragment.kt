@@ -70,6 +70,10 @@ class VirtualCupboardFragment : Fragment() {
    // fun setCupboardView (view : View) {
     // }
 
+    /**
+     * sets the buttons, textview and recyclerviews available on the view depending on the
+     * size of the cupboardList
+     */
     fun setCupboardView(view: View) {
         val btnBigAdd = view.findViewById<Button>(R.id.btn_big_add)
         val txvPrompt = view.findViewById<TextView>(R.id.txv_prompt)
@@ -142,6 +146,10 @@ class VirtualCupboardFragment : Fragment() {
         }
     }
 
+    /**
+     * if the cupboardList is empty then the user is informed that it's already empty
+     * else, the list is cleared
+     */
     fun onClickClearAll() {
         if (cupboardList.isEmpty()) {
             Toast.makeText(activity,"Your cupboard is already empty", Toast.LENGTH_SHORT).show()

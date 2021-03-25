@@ -20,7 +20,9 @@ class RecipeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe)
 
-        // Get parceled recipe object from intent
+        /**
+         * Get parceled recipe object from intent
+         */
         recipe = intent.getParcelableExtra<CocktailRecipe>("recipeToShow")!!
 
         var iv_picture: ImageView = findViewById(R.id.recipe_image)
@@ -32,7 +34,9 @@ class RecipeActivity : AppCompatActivity() {
         var ratBar_rating: RatingBar = findViewById(R.id.recipe_rating)
 
 
-        // adds the back button in the title bar
+        /**
+         * adds the back button in the title bar
+          */
         supportActionBar?.title = recipe.name ?: DEFAULT_RECIPE_NAME
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -63,6 +67,10 @@ class RecipeActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * when pressed, if the recipe object is held within the favourites list already, it is removed
+     * if it is not held within, it is added
+     */
     fun toggleFavouriteButton(iv_favourite: ImageView) {
         if(recipe.isFavourite) {
             recipe.removeFromFavourites()

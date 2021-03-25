@@ -32,7 +32,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textSize="18sp"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:onClick="yourmenu_results_recycler"/>
 
     <Button
         android:id="@+id/btn_small_add"

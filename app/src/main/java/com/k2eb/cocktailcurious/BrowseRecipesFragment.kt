@@ -21,10 +21,13 @@ class BrowseRecipesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val card: Button? = view.findViewById(R.id.card_cocktail)
-        card?.setOnClickListener {
-            val intent = Intent(activity, RecipeActivity::class.java)
-            startActivity(intent)
-        }
+//        card?.setOnClickListener {
+//            val intent = Intent(activity, RecipeActivity::class.java)
+//            cocktailList.forEach {
+//                intent.putExtra("CocktailRecipe object", it)
+//            }
+//            startActivity(intent)
+//        }
     }
 
     override fun onCreateView(
@@ -60,11 +63,11 @@ class BrowseRecipesFragment : Fragment() {
     private fun makeDummyList() {
 
         val db = MockDatabase()
-        val bluLag = CocktailRecipe(db, "Blue Lagoon", "Refreshing and blue.")
-        val pinCol = CocktailRecipe(db, "Pina Colada", "If you like 'em, and rain too.")
-        val mojito = CocktailRecipe(db, "Mojito", "Minty fresh goodness!")
-        val maiTai = CocktailRecipe(db, "Mai Tai", "Camp and fruity. You are what you drink.")
-        val grasshop = CocktailRecipe(db, "Grasshopper", "Like mint choc chip ice cream!")
+        val bluLag = CocktailRecipe("Blue Lagoon", "Refreshing and blue.")
+        val pinCol = CocktailRecipe("Pina Colada", "If you like 'em, and rain too.")
+        val mojito = CocktailRecipe("Mojito", "Minty fresh goodness!")
+        val maiTai = CocktailRecipe("Mai Tai", "Camp and fruity. You are what you drink.")
+        val grasshop = CocktailRecipe("Grasshopper", "Like mint choc chip ice cream!")
         mojito.addToFavourites()
         pinCol.addToFavourites()
         cocktailList.add(bluLag)

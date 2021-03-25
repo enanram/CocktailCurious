@@ -5,45 +5,27 @@ import android.os.Parcelable
 import java.lang.IllegalArgumentException
 
 class CocktailRecipe(
-//		db: MockDatabase,
-		recipeName: String,
-		blurb: String
-//		instruct: String,
-//		equipList: List<Equipment>
+		recipeName: String?,
+		recipeBlurb: String?
 ) : Parcelable {
-	var isFavourite: Boolean
-//	var database: MockDatabase
-	var name: String?
-	var recipeBlurb: String?
+	var name = recipeName
+	var blurb = recipeBlurb
+	var isFavourite = false
 	// Rating out of 5 - 0 means no rating
-	var rating: Int
-//	var instructions: String
-//	var equipment: List<Equipment> = mutableListOf()
-	var ingredients: MutableMap<Ingredient, Int>
-	var image: Int
+	var rating = 0
+	var equipment: List<Equipment> = mutableListOf()
+	var ingredients = mutableMapOf<Ingredient, Int>()
+	var image = R.drawable.martini_silhouette
 
 	constructor(parcel: Parcel) : this(
-//		TODO("db"),
-		TODO("recipeName"),
-		TODO("blurb")
-	) {
+			parcel.readString(),
+			parcel.readString()) {
 		isFavourite = parcel.readByte() != 0.toByte()
-		name = parcel.readString()
-		recipeBlurb = parcel.readString()
 		rating = parcel.readInt()
 	}
+//	var image: Int
 
-	init {
-		isFavourite = false
-//		database = db
-		name = recipeName
-		recipeBlurb = blurb
-		rating = 0
-//		equipment = equipList
-//		instructions = instruct
-		ingredients = mutableMapOf<Ingredient, Int>()
-		image = R.drawable.the_blue_lagoon_cocktail
-	}
+
 
 	/**
 	 * sets the rating which should be between 1 and 5. 0 means no rating.
@@ -71,37 +53,37 @@ class CocktailRecipe(
 	}
 
 	/**
-	* if this cocktail recipe item is not held within the favourites list of the database class
-	* then it will be added
-	*/
+	 * if this cocktail recipe item is not held within the favourites list of the database class
+	 * then it will be added
+	 */
 //	@Throws(IllegalArgumentException::class)
 	fun addToFavourites() {
 //		if (database.favourites.contains(this)) {
 //			throw IllegalArgumentException("Item already in list")
 //		} else {
-			isFavourite = true
+		isFavourite = true
 //			database.addToFavourites(this)
 //		}
 	}
 
 	/**
-	* depending on whether this is already contained within the favourites list within the database
-	* this cocktail recipe object will be removed from within it
-	*/
+	 * depending on whether this is already contained within the favourites list within the database
+	 * this cocktail recipe object will be removed from within it
+	 */
 //	@Throws(IllegalArgumentException::class)
 	fun removeFromFavourites() {
 //		if (!database.favourites.contains(this)) {
 //			throw NoSuchElementException("Item wasn't found in list")
 //		} else {
-			isFavourite = false
+		isFavourite = false
 //			database.removeFromFavourites(this)
 //		}
 	}
 
 	override fun writeToParcel(parcel: Parcel, flags: Int) {
-		parcel.writeByte(if (isFavourite) 1 else 0)
 		parcel.writeString(name)
-		parcel.writeString(recipeBlurb)
+		parcel.writeString(blurb)
+		parcel.writeByte(if (isFavourite) 1 else 0)
 		parcel.writeInt(rating)
 	}
 
@@ -118,6 +100,5 @@ class CocktailRecipe(
 			return arrayOfNulls(size)
 		}
 	}
-
 
 }

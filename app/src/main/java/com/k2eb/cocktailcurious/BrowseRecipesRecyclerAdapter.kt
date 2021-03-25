@@ -35,7 +35,7 @@ class BrowseRecipesRecyclerAdapter(
 
         holder.ivImage.setImageResource(cocktails[position].image)
         holder.tvName.text = cocktails[position].name
-        holder.tvBlurb.text = cocktails[position].recipeBlurb
+        holder.tvBlurb.text = cocktails[position].blurb
         holder.ratRatingBar.numStars = cocktails[position].rating
 
         if (cocktails[position].isFavourite) {
@@ -46,9 +46,9 @@ class BrowseRecipesRecyclerAdapter(
 
         holder.cardView.setOnClickListener {
             val intent = Intent(mcxt, RecipeActivity::class.java)
-            intent.putExtra("passThis", cocktails[position].name)
+            intent.putExtra("recipeToShow", cocktails[position])
             mcxt.startActivity(intent)
-            Log.d("this", cocktails[position].name)
+//            Log.d("this", cocktails[position].name!!)
         }
     }
 

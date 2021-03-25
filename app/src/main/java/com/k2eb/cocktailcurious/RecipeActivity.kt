@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import android.widget.Toolbar
 
 // a default title for the activity, in case of difficulty getting the name from the database
@@ -15,11 +16,13 @@ class RecipeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe)
 
-        val recipeName = DEFAULT_RECIPE_NAME
+        val recipe = intent.getParcelableExtra<CocktailRecipe>("recipeToShow")
+
+
+
 
         // adds the back button in the title bar
-        supportActionBar?.title = recipeName
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = recipe?.name
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
     }
@@ -30,6 +33,7 @@ class RecipeActivity : AppCompatActivity() {
         if (item.itemId == android.R.id.home) finish()
         return super.onOptionsItemSelected(item)
     }
+
 
 
 }

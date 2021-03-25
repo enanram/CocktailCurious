@@ -8,7 +8,7 @@
     <string name="clear_all">Clear All</string>
     <string name="lets_go">Let\'s Go</string>
     <string name="ingredient">Chosen Ingredient</string>
-    <string name="question">What\'s in your cupboard?</string>
+    <string name="prompt">What\'s in your cupboard?</string>
 
     <string name="settings">Settings</string>
 

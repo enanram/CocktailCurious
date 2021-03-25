@@ -15,7 +15,7 @@
     tools:ignore="ExtraText">
 
         <ImageView
-            android:id="@+id/BlueLagoonPicture"
+            android:id="@+id/recipe_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -26,89 +26,89 @@
             android:contentDescription="Blue Lagoon Picture" />
 
         <ImageView
-            android:id="@+id/Share"
+            android:id="@+id/recipe_share_icon"
             android:layout_width="50dp"
             android:layout_height="67dp"
-            app:layout_constraintBottom_toBottomOf="@+id/BlueLagoonPicture"
+            app:layout_constraintBottom_toBottomOf="@+id/recipe_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.545"
-            app:layout_constraintStart_toEndOf="@+id/BlueLagoonPicture"
+            app:layout_constraintStart_toEndOf="@+id/recipe_image"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.361"
             app:srcCompat="@android:drawable/ic_menu_share"
             android:contentDescription="Share Button" />
 
         <ImageView
-            android:id="@+id/Favourite"
+            android:id="@+id/recipe_favourite_icon"
             android:layout_width="50dp"
             android:layout_height="67dp"
-            app:layout_constraintBottom_toBottomOf="@+id/BlueLagoonPicture"
+            app:layout_constraintBottom_toBottomOf="@+id/recipe_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.545"
-            app:layout_constraintStart_toEndOf="@+id/BlueLagoonPicture"
-            app:layout_constraintTop_toBottomOf="@+id/Share"
+            app:layout_constraintStart_toEndOf="@+id/recipe_image"
+            app:layout_constraintTop_toBottomOf="@+id/recipe_share_icon"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@android:drawable/btn_star_big_on"
             android:contentDescription="Favourite Button" />
 
         <TextView
-            android:id="@+id/Description"
+            android:id="@+id/recipe_description"
             android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:text="@string/description"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/BlueLagoonPicture" />
+            app:layout_constraintTop_toBottomOf="@+id/recipe_image" />
 
         <TextView
-            android:id="@+id/Instructions"
+            android:id="@+id/recipe_instructions"
             android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:text="@string/Instructions"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Description" />
+            app:layout_constraintTop_toBottomOf="@+id/recipe_description" />
 
         <TextView
-            android:id="@+id/Equipment"
+            android:id="@+id/recipe_equipment"
             android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:text="@string/Equipment"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Instructions" />
+            app:layout_constraintTop_toBottomOf="@+id/recipe_instructions" />
 
         <TextView
-            android:id="@+id/Ingredients"
+            android:id="@+id/recipe_ingredients"
             android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:text="@string/Ingredients"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Equipment" />
+            app:layout_constraintTop_toBottomOf="@+id/recipe_equipment" />
 
         <TextView
-            android:id="@+id/SubmitView"
+            android:id="@+id/recipe_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:text="@string/submit_view"
             android:textSize="22sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Ingredients" />
+            app:layout_constraintTop_toBottomOf="@+id/recipe_ingredients" />
 
         <RatingBar
-            android:id="@+id/Rating"
+            android:id="@+id/recipe_rating"
             style="@style/customRatingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/SubmitView"
-            app:layout_constraintTop_toBottomOf="@+id/Ingredients" />
+            app:layout_constraintStart_toEndOf="@+id/recipe_submit"
+            app:layout_constraintTop_toBottomOf="@+id/recipe_ingredients" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

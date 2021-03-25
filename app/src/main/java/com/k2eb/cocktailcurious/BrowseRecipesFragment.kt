@@ -60,14 +60,18 @@ class BrowseRecipesFragment : Fragment() {
     /**
      * Just some string to stick into the card view. Nothing major.
      */
+
     private fun makeDummyList() {
 
-        val db = MockDatabase()
         val bluLag = CocktailRecipe("Blue Lagoon", "Refreshing and blue.")
         val pinCol = CocktailRecipe("Pina Colada", "If you like 'em, and rain too.")
         val mojito = CocktailRecipe("Mojito", "Minty fresh goodness!")
         val maiTai = CocktailRecipe("Mai Tai", "Camp and fruity. You are what you drink.")
         val grasshop = CocktailRecipe("Grasshopper", "Like mint choc chip ice cream!")
+
+        bluLag.image = R.drawable.the_blue_lagoon_cocktail
+        bluLag.description = "The Blue Lagoon is a refreshing, three-ingredient cocktail containing vodka, blue curaçao and lemonade."
+        pinCol.description = "This tropical cocktail — a mix of rum, coconut, pineapple and lime juices—dates to the 1950s and has been satisfying vacationers and Tiki aficionados since."
         mojito.addToFavourites()
         pinCol.addToFavourites()
         cocktailList.add(bluLag)

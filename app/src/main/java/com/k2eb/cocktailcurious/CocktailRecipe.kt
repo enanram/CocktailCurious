@@ -10,6 +10,7 @@ class CocktailRecipe(
 ) : Parcelable {
 	var name = recipeName
 	var blurb = recipeBlurb
+	var description = ""
 	var isFavourite = false
 	// Rating out of 5 - 0 means no rating
 	var rating = 0
@@ -23,9 +24,6 @@ class CocktailRecipe(
 		isFavourite = parcel.readByte() != 0.toByte()
 		rating = parcel.readInt()
 	}
-//	var image: Int
-
-
 
 	/**
 	 * sets the rating which should be between 1 and 5. 0 means no rating.
@@ -38,7 +36,6 @@ class CocktailRecipe(
 			rating = value
 		}
 	}
-
 
 	/**
 	 * Adds ingredient and amount to the ingredient list. If the ingredient is already in the list,
@@ -56,7 +53,7 @@ class CocktailRecipe(
 	 * if this cocktail recipe item is not held within the favourites list of the database class
 	 * then it will be added
 	 */
-//	@Throws(IllegalArgumentException::class)
+//@Throws(IllegalArgumentException::class)
 	fun addToFavourites() {
 //		if (database.favourites.contains(this)) {
 //			throw IllegalArgumentException("Item already in list")
@@ -82,7 +79,9 @@ class CocktailRecipe(
 
 	override fun writeToParcel(parcel: Parcel, flags: Int) {
 		parcel.writeString(name)
+		parcel.writeInt(image)
 		parcel.writeString(blurb)
+		parcel.writeString(description)
 		parcel.writeByte(if (isFavourite) 1 else 0)
 		parcel.writeInt(rating)
 	}

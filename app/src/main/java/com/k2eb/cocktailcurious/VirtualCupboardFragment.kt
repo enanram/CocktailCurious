@@ -35,6 +35,11 @@ class VirtualCupboardFragment : Fragment() {
             }
     }
 
+    // TODO method that sets the view in the virtual cupboard
+
+   // fun setCupboardView (view : View) {
+    // }
+
     // TODO method to add/remove ingredients to cupboard database
 
     /**

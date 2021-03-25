@@ -48,7 +48,6 @@ class BrowseRecipesRecyclerAdapter(
             val intent = Intent(mcxt, RecipeActivity::class.java)
             intent.putExtra("recipeToShow", cocktails[position])
             mcxt.startActivity(intent)
-//            Log.d("this", cocktails[position].name!!)
         }
     }
 

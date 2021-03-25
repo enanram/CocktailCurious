@@ -22,8 +22,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/the_blue_lagoon_cocktail"
-            android:contentDescription="Blue Lagoon Picture" />
+            app:srcCompat="@drawable/martini_silhouette"
+            android:contentDescription="Recipe Picture" />
 
         <ImageView
             android:id="@+id/recipe_share_icon"
@@ -48,7 +48,7 @@
             app:layout_constraintStart_toEndOf="@+id/recipe_image"
             app:layout_constraintTop_toBottomOf="@+id/recipe_share_icon"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@android:drawable/btn_star_big_on"
+            app:srcCompat="@mipmap/icon_star_off_foreground"
             android:contentDescription="Favourite Button" />
 
         <TextView
@@ -62,7 +62,7 @@
             app:layout_constraintTop_toBottomOf="@+id/recipe_image" />
 
         <TextView
-            android:id="@+id/recipe_instructions"
+            android:id="@+id/recipe_instructions_title"
             android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:text="@string/Instructions"
@@ -72,6 +72,16 @@
             app:layout_constraintTop_toBottomOf="@+id/recipe_description" />
 
         <TextView
+            android:id="@+id/recipe_instructions_body"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:text="instructions placeholder"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recipe_instructions_title" />
+
+        <TextView
             android:id="@+id/recipe_equipment"
             android:layout_width="370dp"
             android:layout_height="wrap_content"
@@ -79,7 +89,7 @@
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recipe_instructions" />
+            app:layout_constraintTop_toBottomOf="@+id/recipe_instructions_body" />
 
         <TextView
             android:id="@+id/recipe_ingredients"

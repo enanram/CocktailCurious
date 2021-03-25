@@ -25,6 +25,10 @@ class CocktailRecipe(
 		rating = parcel.readInt()
 	}
 
+	fun quantityString() {
+
+	}
+
 	/**
 	 * sets the rating which should be between 1 and 5. 0 means no rating.
 	 */

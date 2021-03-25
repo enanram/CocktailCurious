@@ -26,10 +26,10 @@
 
     <!-- Blue Lagoon Recipe String Values -->
     <string name="app_title">Cocktail Curious</string>
-    <string name="description"><b>Description:</b> The Blue Lagoon is a refreshing, three-ingredient cocktail containing vodka, blue curaçao and lemonade.</string>
+    <string name="description"><b>Description:</b>Recipe description</string>
     <string name="Equipment"><b>Equipment:</b> \n -Shaker</string>
     <string name="Ingredients"><b>Ingredients:</b> \nVodka - 35ml\nBlue Curacao - 15ml\nSoda - 30ml</string>
-    <string name="Instructions"><b>Instructions:</b> \n<b>1)</b> Add ingredients to shaker with ice. \n<b>2)</b> Shake and serve</string>
+    <string name="Instructions"><b>Instructions:</b></string>
     <string name="submit_view"><b>Submit Rating:</b></string>
 
     <!-- Pina Colada Recipe String Values -->

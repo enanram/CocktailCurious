@@ -144,7 +144,7 @@ class VirtualCupboardFragment : Fragment() {
 
     fun onClickClearAll() {
         if (cupboardList.isEmpty()) {
-            Toast.makeText(this,"Your cupboard is already empty", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity,"Your cupboard is already empty", Toast.LENGTH_SHORT).show()
         } else {
             cupboardList.clear()
         }

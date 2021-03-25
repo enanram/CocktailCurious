@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 
 
 class VirtualCupboardFragment : Fragment() {
@@ -24,13 +25,22 @@ class VirtualCupboardFragment : Fragment() {
 
 
 
-
         val letsGoButton = view.findViewById<Button>(R.id.btn_lets_go)
+        val clearButton = view.findViewById<Button>(R.id.btn_clear_all)
+
         letsGoButton.setOnClickListener {
             val transaction = this.fragmentManager?.beginTransaction()?.replace(R.id.fragment_container, YourMenuFragment())
             transaction?.addToBackStack(null)
+            (activity as MainActivity).setTitleBar(getString(R.string.your_menu_title))
             transaction?.commit()
+        }
 
+        clearButton.setOnClickListener {
+            if (cupboardList.isEmpty()) {
+                Toast.makeText(activity, "Your cupboard is empty.", Toast.LENGTH_LONG).show()
+            } else {
+                cupboardList.clear()
+            }
         }
     }
 

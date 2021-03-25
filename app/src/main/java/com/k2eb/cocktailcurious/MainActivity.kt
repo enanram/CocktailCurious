@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         fragmentContainer = findViewById(R.id.fragment_container)
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, VirtualCupboardFragment()).commit()
+        setTitleBar(getString(R.string.virtual_cupboard_title))
 
         drawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
@@ -51,6 +52,7 @@ class MainActivity : AppCompatActivity() {
 //                    Toast.makeText(applicationContext, "clicked virtual cupboard", Toast.LENGTH_LONG).show()
                     var transaction = supportFragmentManager.beginTransaction().replace(R.id.fragment_container, VirtualCupboardFragment())
                     transaction.addToBackStack(null)
+                    setTitleBar(getString(R.string.virtual_cupboard_title))
                     transaction.commit()
 
                 }
@@ -58,6 +60,7 @@ class MainActivity : AppCompatActivity() {
 //                    Toast.makeText(applicationContext, "clicked your menu", Toast.LENGTH_LONG).show()
                     var transaction = supportFragmentManager.beginTransaction().replace(R.id.fragment_container, YourMenuFragment())
                     transaction.addToBackStack(null)
+                    setTitleBar(getString(R.string.your_menu_title))
                     transaction.commit()
 
                 }
@@ -65,6 +68,7 @@ class MainActivity : AppCompatActivity() {
 //                    Toast.makeText(applicationContext, "clicked favourites", Toast.LENGTH_LONG).show()
                     var transaction = supportFragmentManager.beginTransaction().replace(R.id.fragment_container, FavouritesFragment())
                     transaction.addToBackStack(null)
+                    setTitleBar(getString(R.string.favourites_title))
                     transaction.commit()
 
                 }
@@ -72,6 +76,7 @@ class MainActivity : AppCompatActivity() {
 //                    Toast.makeText(applicationContext, "clicked browse recipes", Toast.LENGTH_LONG).show()
                     var transaction = supportFragmentManager.beginTransaction().replace(R.id.fragment_container, BrowseRecipesFragment())
                     transaction.addToBackStack(null)
+                    setTitleBar(getString(R.string.browse_recipes_title))
                     transaction.commit()
 
                 }
@@ -79,6 +84,13 @@ class MainActivity : AppCompatActivity() {
             onBackPressed()
             true
         }
+    }
+
+    /**
+     * Set the title depending on the fragment
+     */
+    fun setTitleBar(text: String) {
+        supportActionBar?.title = text
     }
 
     /**

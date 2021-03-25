@@ -61,5 +61,5 @@ class VirtualCupboardFragment : Fragment() {
         }
     }
 
-//    fun onClic
+    fun onClic
 }

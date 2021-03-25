@@ -28,6 +28,7 @@ class RecipeActivity : AppCompatActivity() {
 
         val recipe = intent.getParcelableExtra<CocktailRecipe>("recipeToShow")
 
+
         // adds the back button in the title bar
         supportActionBar?.title = recipe?.name
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

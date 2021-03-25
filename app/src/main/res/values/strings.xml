@@ -10,6 +10,12 @@
     <string name="ingredient">Chosen Ingredient</string>
     <string name="prompt">What\'s in your cupboard?</string>
 
+<!--    Titles for fragments-->
+    <string name="your_menu_title">Your Menu</string>
+    <string name="virtual_cupboard_title">Virtual Cupboard</string>
+    <string name="browse_recipes_title">Browse All</string>
+    <string name="favourites_title">Your Favourites</string>
+
     <string name="settings">Settings</string>
 
     <string name="open">Open</string>

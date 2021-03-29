@@ -28,16 +28,12 @@ class VirtualCupboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         val letsGoButton = view.findViewById<Button>(R.id.btn_lets_go)
         val clearButton = view.findViewById<Button>(R.id.btn_clear_all)
         val bigAddButton = view.findViewById<Button>(R.id.btn_big_add)
         val smallAddButton = view.findViewById<Button>(R.id.btn_small_add)
-        val exitButton = view.findViewById<Button>(R.id.btn_x)
 
         setCupboardView(view)
-        cupboardRecycler.adapter = IngredientRecyclerAdapter(MainActivity.makeIngredientList())
-
 
         letsGoButton.setOnClickListener {
             val transaction = this.fragmentManager?.beginTransaction()?.replace(R.id.fragment_container, YourMenuFragment())
@@ -47,24 +43,10 @@ class VirtualCupboardFragment : Fragment() {
         }
 
         bigAddButton.setOnClickListener {
-            // Inflate the display.
-            val flater = layoutInflater.inflate(R.layout.fragment_search_popup, null)
-            ingredientRecycler = flater.findViewById(R.id.ingredient_results)
-            ingredientRecycler.layoutManager = LinearLayoutManager(ingredientRecycler.context)
-            val searchPopup = PopupWindow(ingredientRecycler)
-            exitButton.setOnClickListener {
-                searchPopup.dismiss()
-            }
-            searchPopup.showAtLocation(view, Gravity.CENTER,0,0)
+            popupIngredientSearch(view)
         }
-
         smallAddButton.setOnClickListener() {
-            val searchPopup = PopupWindow()
-            val popup = layoutInflater.inflate(R.layout.fragment_search_popup, null)
-            searchPopup.contentView = view
-            exitButton.setOnClickListener {
-                searchPopup.dismiss()
-            }
+            popupIngredientSearch(view)
         }
 
         clearButton.setOnClickListener {
@@ -138,7 +120,21 @@ class VirtualCupboardFragment : Fragment() {
         }
     }
 
-    // TODO method to add/remove ingredients to cupboard database
+    fun popupIngredientSearch(view: View) {
+
+        // Inflate the display.
+        val flater = layoutInflater.inflate(R.layout.fragment_search_popup, null)
+        val exitButton = view.findViewById<Button>(R.id.btn_x)
+        ingredientRecycler = flater.findViewById(R.id.ingredient_results)
+        ingredientRecycler.adapter = IngredientRecyclerAdapter(MainActivity.makeIngredientsList())
+
+        val searchPopup = PopupWindow(ingredientRecycler)
+        exitButton.setOnClickListener {
+            searchPopup.dismiss()
+        }
+        searchPopup.showAtLocation(view, Gravity.CENTER,0,0)
+    }
+
 
     /**
      * Add ingredient

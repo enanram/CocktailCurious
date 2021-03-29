@@ -146,6 +146,8 @@ class MainActivity : AppCompatActivity() {
         var maraschinoCherry = Garnish("Maraschino cherries")
         var maraschinoSyrup = Garnish("Maraschino cherry syrup")
         var pineapple = Garnish("Pineapple")
+        var mint = Garnish("Mint")
+        var granulatedSugar = Garnish("Granulated Sugar")
 
         var cola = Mixer("Cola")
         var lemonJuice = Mixer("Lemon juice")
@@ -215,9 +217,41 @@ class MainActivity : AppCompatActivity() {
                 pinaColadaInstructions
         )
 
+        var mojitoIngredients = mutableMapOf(
+                limeJuice to -13,
+                whiteRum to 60,
+                mint to -14,
+                sodaWater to 120,
+                granulatedSugar to -11
+        )
+
+        var mojitoInstructions = mutableListOf(
+                "Muddle the lime juice, sugar and mint leaves in a small jug," +
+                        "crushing the mint as you go – you can use the end of " +
+                        "a rolling pin for this. Pour into a tall glass and " +
+                        "add a handful of ice. Pour over the rum, stirring " +
+                        "with a long-handled spoon. Top up with soda water, " +
+                        "garnish with mint and serve."
+        )
+
+        var mojitoEquipment = mutableListOf(shaker)
+
+        var mojito = CocktailRecipe(
+                "Mojito",
+                R.drawable.mojito_drink,
+                "A refreshing mix of mint, lime and rum.",
+                "Mix this classic cocktail for a party using fresh mint, " +
+                        "white rum, sugar, zesty lime and cooling soda water. Play " +
+                        "with the quantities to suit your taste.",
+                mojitoEquipment,
+                mojitoIngredients,
+                mojitoInstructions
+        )
+
         fun addCocktailsToList() {
             CocktailRecipe.cocktailList.add(blueLagoon)
             CocktailRecipe.cocktailList.add(pinaColada)
+            CocktailRecipe.cocktailList.add(mojito)
         }
 
         fun addIngredientsToList() {
@@ -233,6 +267,8 @@ class MainActivity : AppCompatActivity() {
             Ingredient.ingredientList.add(maraschinoCherry)
             Ingredient.ingredientList.add(maraschinoSyrup)
             Ingredient.ingredientList.add(pineapple)
+            Ingredient.ingredientList.add(mint)
+            Ingredient.ingredientList.add(granulatedSugar)
 
             Ingredient.ingredientList.add(cola)
             Ingredient.ingredientList.add(lemonJuice)

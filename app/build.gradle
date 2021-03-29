@@ -1,3 +1,5 @@
+
+
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
@@ -6,6 +8,8 @@ plugins {
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
+
+
 
     defaultConfig {
         applicationId "com.k2eb.cocktailcurious"
@@ -23,6 +27,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

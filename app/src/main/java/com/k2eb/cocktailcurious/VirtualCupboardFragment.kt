@@ -28,6 +28,8 @@ class VirtualCupboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setCupboardView(view)
+
         val letsGoButton = view.findViewById<Button>(R.id.btn_lets_go)
         val clearButton = view.findViewById<Button>(R.id.btn_clear_all)
         val bigAddButton = view.findViewById<Button>(R.id.btn_big_add)

@@ -34,6 +34,7 @@ class BrowseRecipesRecyclerAdapter(
         return RecipeViewHolder(view)
     }
 
+
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
 
         holder.ivImage.setImageResource(cocktails[position].image)
@@ -41,27 +42,44 @@ class BrowseRecipesRecyclerAdapter(
         holder.tvBlurb.text = cocktails[position].blurb
         holder.ratRatingBar.numStars = cocktails[position].rating
 
-        if (cocktails[position].isFavourite) {
-            holder.ivFavourite.setImageResource(R.mipmap.icon_star_on_foreground)
-        } else {
-            holder.ivFavourite.setImageResource(R.mipmap.icon_star_off_foreground)
-        }
+        updateFavouriteImage(holder, position)
 
         holder.cardView.setOnClickListener {
             val intent = Intent(mcxt, RecipeActivity::class.java)
             intent.putExtra("recipe index", cocktails[position].name)
             mcxt.startActivity(intent)
         }
+
+        holder.ivFavourite.setOnClickListener {
+            toggleFavourite(holder, position)
+        }
     }
 
+    fun toggleFavourite(holder: RecipeViewHolder, position: Int) {
+        cocktails[position].toggleFavourite()
+        updateFavouriteImage(holder, position)
+    }
+
+    fun updateFavouriteImage(holder: RecipeViewHolder, position: Int) {
+        if (cocktails[position].isFavourite) {
+            holder.ivFavourite.setImageResource(R.mipmap.icon_star_on_foreground)
+        } else {
+            holder.ivFavourite.setImageResource(R.mipmap.icon_star_off_foreground)
+        }
+    }
+
+
+
     class RecipeViewHolder(itemView: View) :
+
         RecyclerView.ViewHolder(itemView) {
         var cardView: CardView = itemView.findViewById(R.id.card_cocktail)
         var ivImage: ImageView = itemView.findViewById(R.id.cocktail_image)
         var tvName: TextView = itemView.findViewById(R.id.cocktail_name)
         var tvBlurb: TextView = itemView.findViewById(R.id.cocktail_blurb)
         var ratRatingBar: RatingBar = itemView.findViewById(R.id.cocktail_rating)
-        var ivFavourite: ImageView = itemView.findViewById(R.id.cocktail_favourite)
+        var ivFavourite: ImageView = itemView.findViewById(R.id.cocktail_card_favourite)
     }
+
 
 }

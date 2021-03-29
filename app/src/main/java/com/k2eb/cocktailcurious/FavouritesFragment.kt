@@ -37,7 +37,9 @@ class FavouritesFragment : Fragment() {
         recipeRecycler.layoutManager = LinearLayoutManager(recipeRecycler.context)
 
         // get data function
-        makeDummyList()
+        CocktailRecipe.cocktailList.forEach {
+            if (it.isFavourite) favouritesList.add(it)
+        }
         recipeRecycler.adapter = BrowseRecipesRecyclerAdapter(favouritesList)
 
         return flater

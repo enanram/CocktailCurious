@@ -218,7 +218,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         var mojitoIngredients = mutableMapOf(
-                limeJuice to -13,
+                lime to -13,
                 whiteRum to 60,
                 mint to -14,
                 sodaWater to 120,
@@ -228,10 +228,10 @@ class MainActivity : AppCompatActivity() {
         var mojitoInstructions = mutableListOf(
                 "Muddle the lime juice, sugar and mint leaves in a small jug," +
                         "crushing the mint as you go – you can use the end of " +
-                        "a rolling pin for this. Pour into a tall glass and " +
-                        "add a handful of ice. Pour over the rum, stirring " +
-                        "with a long-handled spoon. Top up with soda water, " +
-                        "garnish with mint and serve."
+                        "a rolling pin for this.",
+                "Pour into a tall glass and add a handful of ice. Pour over the rum, stirring " +
+                        "with a long-handled spoon.",
+                "Top up with soda water, garnish with mint and serve."
         )
 
         var mojitoEquipment = mutableListOf(shaker)

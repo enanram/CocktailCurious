@@ -17,6 +17,9 @@ class CocktailRecipe(
 	var rating = 0
 
 
+	fun toggleFavourite() {
+		isFavourite = !isFavourite
+	}
 
 	/**
 	 * sets the rating which should be between 1 and 5. 0 means no rating.
@@ -40,34 +43,6 @@ class CocktailRecipe(
 		}
 		ingredients.put(ingredient, quantity)
 
-	}
-
-	/**
-	 * if this cocktail recipe item is not held within the favourites list of the database class
-	 * then it will be added
-	 */
-//@Throws(IllegalArgumentException::class)
-	fun addToFavourites() {
-//		if (database.favourites.contains(this)) {
-//			throw IllegalArgumentException("Item already in list")
-//		} else {
-		isFavourite = true
-//			database.addToFavourites(this)
-//		}
-	}
-
-	/**
-	 * depending on whether this is already contained within the favourites list within the database
-	 * this cocktail recipe object will be removed from within it
-	 */
-//	@Throws(IllegalArgumentException::class)
-	fun removeFromFavourites() {
-//		if (!database.favourites.contains(this)) {
-//			throw NoSuchElementException("Item wasn't found in list")
-//		} else {
-		isFavourite = false
-//			database.removeFromFavourites(this)
-//		}
 	}
 
 

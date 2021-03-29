@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,12 +16,13 @@ class BrowseRecipesFragment : Fragment() {
 
     private lateinit var recipeAdapter: BrowseRecipesRecyclerAdapter
     lateinit var recipeRecycler: RecyclerView
-    private var cocktailList = arrayListOf<CocktailRecipe>()
-    var favouritesList = mutableListOf<CocktailRecipe>()
+//    private var cocktailList = arrayListOf<CocktailRecipe>()
+//    var favouritesList = mutableListOf<CocktailRecipe>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val card: Button? = view.findViewById(R.id.card_cocktail)
+
 //        card?.setOnClickListener {
 //            val intent = Intent(activity, RecipeActivity::class.java)
 //            cocktailList.forEach {
@@ -28,6 +30,15 @@ class BrowseRecipesFragment : Fragment() {
 //            }
 //            startActivity(intent)
 //        }
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        if(this::recipeRecycler.isInitialized) {
+            recipeRecycler.adapter = BrowseRecipesRecyclerAdapter(CocktailRecipe.cocktailList)
+            recipeRecycler.invalidate()
+        }
     }
 
     override fun onCreateView(
@@ -45,7 +56,6 @@ class BrowseRecipesFragment : Fragment() {
         /**
          * Insert
           */
-//        makeDummyList()
         recipeRecycler.adapter = BrowseRecipesRecyclerAdapter(CocktailRecipe.cocktailList)
 
         return flater

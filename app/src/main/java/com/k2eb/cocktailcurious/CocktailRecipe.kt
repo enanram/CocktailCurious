@@ -17,6 +17,7 @@ class CocktailRecipe(
 	var equipment: List<Equipment> = mutableListOf()
 	var ingredients = mutableMapOf<Ingredient, Int>()
 	var image = R.drawable.martini_silhouette
+	var instructions = mutableListOf<String>()
 
 	constructor(parcel: Parcel) : this(
 			parcel.readString(),

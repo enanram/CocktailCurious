@@ -20,6 +20,7 @@ class RecipeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe)
 
+
         // Get parceled recipe object from intent
         recipe = intent.getParcelableExtra<CocktailRecipe>("recipeToShow")!!
 
@@ -30,6 +31,7 @@ class RecipeActivity : AppCompatActivity() {
         var tv_ingredients: TextView = findViewById(R.id.recipe_ingredients)
         var tv_equipment: TextView = findViewById(R.id.recipe_equipment)
         var ratBar_rating: RatingBar = findViewById(R.id.recipe_rating)
+        var instructions: TextView = findViewById(R.id.recipe_instructions)
 
 
         // adds the back button in the title bar
@@ -37,15 +39,9 @@ class RecipeActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         iv_picture = findViewById(recipe.image ?: R.drawable.martini_silhouette)
-        tv_description.text = recipe.description ?: recipe.blurb
+        tv_description.text = if (recipe.description == "") recipe.blurb else recipe.description
 
-        var ingredientString = ""
-        for (ingredient in recipe.ingredients.keys) {
-            ingredientString += quantityString(recipe.ingredients[ingredient]!!)
-
-            ingredientString += ingredient.name + "/n"
-        }
-
+        tv_ingredients.text = formatIngredients(recipe.ingredients)
 
         if (recipe!!.isFavourite) iv_favourite.setImageResource(R.mipmap.icon_star_on_foreground)
 
@@ -55,10 +51,12 @@ class RecipeActivity : AppCompatActivity() {
         }
 
 
-        tv_description.setText(recipe.description)
+        tv_description.text = recipe.description
         //tv_ingredients.setText(recipe.ingredients)
         //tv_equipment
         //ratBar_rating.setOnClickListener(
+
+        instructions.text = formatInstructions(recipe.instructions)
 
 
     }
@@ -96,9 +94,46 @@ class RecipeActivity : AppCompatActivity() {
             -10 -> "Splash of "
             -11 -> "Teaspoon of "
             -12 -> "2 teaspoons of "
+            -13 -> "Juice of one "
+
+            -101 -> "One "
+            -102 -> "Two "
+            -103 -> "Three "
+            -104 -> "Four "
+            -105 -> "Five "
+            -106 -> "Six "
+            -107 -> "Seven "
+            -108 -> "Eight "
+            -109 -> "Nine "
+            -110 -> "Ten "
+
             else -> "$value ml of "
         }
     }
 
+
+    /**
+     * converts a list of strings to a string with each element on a new, numbered line
+     */
+    fun formatInstructions(instructionList: MutableList<String>): String {
+        // instructionsf stands for 'instructions formatted'
+        var instructionsf = ""
+        instructionList.forEachIndexed { i, line ->
+            val num = i + 1
+            instructionsf += "$num. $line \n"
+        }
+        // remove the newline from the last instruction
+        return instructionsf.trimEnd()
+
+    }
+
+    fun formatIngredients(ingredients: MutableMap<Ingredient, Int>): String {
+        var ingredientsf = ""
+        ingredients.forEach { ingredient ->
+            ingredientsf += quantityString(recipe.ingredients[ingredient.value]!!)
+            ingredientsf += ingredient.key.name + "/n"
+        }
+        return ingredientsf.trimEnd()
+    }
 
 }

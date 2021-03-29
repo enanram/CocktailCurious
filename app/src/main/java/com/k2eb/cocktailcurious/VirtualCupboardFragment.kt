@@ -26,18 +26,13 @@ class VirtualCupboardFragment : Fragment() {
         cupboardRecycler = flater.findViewById(R.id.rv_ingredients)
         cupboardRecycler.layoutManager = LinearLayoutManager(cupboardRecycler.context)
         cupboardRecycler.adapter = CupboardRecyclerAdapter(cupboardList)
-        return flater
-    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        val letsGoButton = flater.findViewById<Button>(R.id.btn_lets_go)
+        val clearButton = flater.findViewById<Button>(R.id.btn_clear_all)
+        val bigAddButton = flater.findViewById<Button>(R.id.btn_big_add)
+        val smallAddButton = flater.findViewById<Button>(R.id.btn_small_add)
 
-        val letsGoButton = view.findViewById<Button>(R.id.btn_lets_go)
-        val clearButton = view.findViewById<Button>(R.id.btn_clear_all)
-        val bigAddButton = view.findViewById<Button>(R.id.btn_big_add)
-        val smallAddButton = view.findViewById<Button>(R.id.btn_small_add)
-
-        setCupboardView(view)
+        setCupboardView(flater)
 
         letsGoButton.setOnClickListener {
             val transaction = this.fragmentManager?.beginTransaction()?.replace(R.id.fragment_container, YourMenuFragment())
@@ -46,12 +41,18 @@ class VirtualCupboardFragment : Fragment() {
             transaction?.commit()
         }
 
-        bigAddButton.setOnClickListener {
 
-            popupIngredientSearch(view)
+        bigAddButton.setOnClickListener {
+            val transaction = this.fragmentManager?.beginTransaction()?.replace(R.id.fragment_container, IngredientSearchFragment())
+            transaction?.addToBackStack(null)
+            (activity as MainActivity).setTitleBar("Ingredient Search")
+            transaction?.commit()
         }
         smallAddButton.setOnClickListener {
-            popupIngredientSearch(view)
+            val transaction = this.fragmentManager?.beginTransaction()?.replace(R.id.fragment_container, IngredientSearchFragment())
+            transaction?.addToBackStack(null)
+            (activity as MainActivity).setTitleBar("Ingredient Search")
+            transaction?.commit()
         }
 
         clearButton.setOnClickListener {
@@ -61,6 +62,12 @@ class VirtualCupboardFragment : Fragment() {
                 cupboardList.clear()
             }
         }
+
+        return flater
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 
     companion object {
@@ -130,10 +137,10 @@ class VirtualCupboardFragment : Fragment() {
         }
     }
 
-    private fun popupIngredientSearch(view: View) {
+    /*private fun popupIngredientSearch() {
 
         // Inflate the display.
-        val flater: View = LayoutInflater.from(activity).inflate(R.layout.fragment_search_popup, null, false)
+        val flater: View = LayoutInflater.from(activity).inflate(R.layout.fragment_search_popup, null,false)
         ingredientRecycler = flater.findViewById(R.id.ingredient_results)
         val searchPopup = PopupWindow(ingredientRecycler)
         // Apply the adapter to the RecyclerView
@@ -144,5 +151,5 @@ class VirtualCupboardFragment : Fragment() {
             searchPopup.dismiss()
         }
         searchPopup.showAtLocation(view, Gravity.CENTER, 0, 0)
-    }
+    }*/
 }

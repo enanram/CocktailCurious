@@ -139,6 +139,10 @@ class MainActivity : AppCompatActivity() {
         var bourbon = Alcohol("Bourbon")
         var blueCuracao = Alcohol("Blue Curacao")
         var whiteRum = Alcohol("White rum")
+        var darkRum = Alcohol("Dark rum")
+        var tripleSec = Alcohol("Triple sec")
+        var cremeDeMenthe = Alcohol("Crème de menthe")
+        var whiteCreme = Alcohol("White crème de cacao")
 
         var lemon = Garnish("Lemon")
         var orange = Garnish("Orange")
@@ -156,6 +160,10 @@ class MainActivity : AppCompatActivity() {
         var sodaWater = Mixer("Soda water")
         var pineappleJuice = Mixer("Pineapple juice")
         var coconutCream = Mixer("Coconut cream")
+        var grenadine = Mixer("Grenadine")
+        var almondSyrup = Mixer("Almond syrup")
+        var singleCream = Mixer("Single cream")
+        var ice = Mixer("Ice")
 
         // Equipment objects
         var shaker = Equipment("Shaker", R.drawable.shaker_silhoutte)
@@ -238,7 +246,7 @@ class MainActivity : AppCompatActivity() {
 
         var mojito = CocktailRecipe(
                 "Mojito",
-                R.drawable.mojito_drink,
+                R.drawable.malibu_mojito,
                 "A refreshing mix of mint, lime and rum.",
                 "Mix this classic cocktail for a party using fresh mint, " +
                         "white rum, sugar, zesty lime and cooling soda water. Play " +
@@ -248,10 +256,72 @@ class MainActivity : AppCompatActivity() {
                 mojitoInstructions
         )
 
+        var maiTaiIngredients = mutableMapOf(
+                whiteRum to -17,
+                darkRum to -17,
+                tripleSec to -17,
+                grenadine to -16,
+                almondSyrup to -16,
+                lime to -15,
+                maraschinoCherry to -101
+        )
+
+        var maiTaiInstructions = mutableListOf(
+                "Stir all the ingredients together in a jug or shake them in a cocktail " +
+                        "shaker. Put a few cubes of ice in a tumbler, pour over the " +
+                        "liquid and garnish with a cherry."
+        )
+
+        var maiTaiEquipment = mutableListOf(shaker)
+
+        var maiTai = CocktailRecipe(
+                "Mai tai",
+                R.drawable.mai_tai_drink,
+                "A strong, tart cocktail, with a prominent rum flavor.",
+                "Mix this classic cocktail for a party using fresh mint, white rum, " +
+                        "sugar, zesty lime and cooling soda water. Play with the quantities to " +
+                        "suit your taste.",
+                maiTaiEquipment,
+                maiTaiIngredients,
+                maiTaiInstructions
+        )
+
+        var grasshopperIngredients = mutableMapOf(
+                cremeDeMenthe to 25,
+                whiteCreme to 25,
+                singleCream to 25,
+                mint to -7,
+                ice to -2
+        )
+
+        var grasshopperInstructions = mutableListOf(
+                "Start by making the garnish. Take a sprig of mint, strip off the leaves at the " +
+                        "base and dip the stalk in the melted chocolate, holding the upper leaves " +
+                        "gently. Leave to set on a plate or tray. Fill a cocktail shaker with ice then " +
+                        "pour in the liqueurs and cream. Shake hard until the outside of the cocktail " +
+                        "shaker is cold, then strain in to a cocktail glass or small coupe. Garnish " +
+                        "with the chocolate-dipped sprig of mint."
+        )
+
+        var grasshopperEquipment = mutableListOf(shaker)
+
+        var grasshopper = CocktailRecipe(
+                "Grasshopper",
+                R.drawable.grasshopper_drink,
+                "A sweet, mint-flavored, after-dinner drink.",
+                "Looking for a spooky cocktail to serve at a Halloween party? With its bright " +
+                        "green colour, this minty grasshopper cocktail will certainly look the part...",
+                grasshopperEquipment,
+                grasshopperIngredients,
+                grasshopperInstructions
+        )
+
         fun addCocktailsToList() {
             CocktailRecipe.cocktailList.add(blueLagoon)
             CocktailRecipe.cocktailList.add(pinaColada)
             CocktailRecipe.cocktailList.add(mojito)
+            CocktailRecipe.cocktailList.add(maiTai)
+            CocktailRecipe.cocktailList.add(grasshopper)
         }
 
         fun addIngredientsToList() {
@@ -260,6 +330,8 @@ class MainActivity : AppCompatActivity() {
             Ingredient.ingredientList.add(bourbon)
             Ingredient.ingredientList.add(blueCuracao)
             Ingredient.ingredientList.add(whiteRum)
+            Ingredient.ingredientList.add(darkRum)
+            Ingredient.ingredientList.add(tripleSec)
 
             Ingredient.ingredientList.add(lemon)
             Ingredient.ingredientList.add(orange)
@@ -277,6 +349,8 @@ class MainActivity : AppCompatActivity() {
             Ingredient.ingredientList.add(sodaWater)
             Ingredient.ingredientList.add(pineappleJuice)
             Ingredient.ingredientList.add(coconutCream)
+            Ingredient.ingredientList.add(grenadine)
+            Ingredient.ingredientList.add(almondSyrup)
         }
 
         fun addEquipmentToList() {

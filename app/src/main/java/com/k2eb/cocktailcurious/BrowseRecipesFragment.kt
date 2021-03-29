@@ -18,26 +18,12 @@ class BrowseRecipesFragment : Fragment() {
     private var cocktailList = arrayListOf<CocktailRecipe>()
     var favouritesList = mutableListOf<CocktailRecipe>()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val card: Button? = view.findViewById(R.id.card_cocktail)
-//        card?.setOnClickListener {
-//            val intent = Intent(activity, RecipeActivity::class.java)
-//            cocktailList.forEach {
-//                intent.putExtra("CocktailRecipe object", it)
-//            }
-//            startActivity(intent)
-//        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        /**
-         * Inflate the layout for this fragment
-          */
+        // Inflate the layout for this fragment
         val flater = inflater.inflate(R.layout.fragment_browse_recipes, container, false)
         recipeRecycler = flater.findViewById(R.id.recipe_results_recycler)
         recipeRecycler.layoutManager = LinearLayoutManager(recipeRecycler.context)

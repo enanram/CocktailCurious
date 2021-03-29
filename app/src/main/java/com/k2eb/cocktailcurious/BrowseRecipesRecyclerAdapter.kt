@@ -49,7 +49,7 @@ class BrowseRecipesRecyclerAdapter(
 
         holder.cardView.setOnClickListener {
             val intent = Intent(mcxt, RecipeActivity::class.java)
-            intent.putExtra("recipeToShow", cocktails[position])
+            intent.putExtra("recipe index", cocktails[position].name)
             mcxt.startActivity(intent)
         }
     }

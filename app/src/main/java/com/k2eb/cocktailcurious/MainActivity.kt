@@ -20,32 +20,12 @@ const val EXTRA_MESSAGE = "com.k2eb.cocktailcurious.MESSAGE"
 
 class MainActivity : AppCompatActivity() {
 
-    //TODO create some ingredients and equipment and try parceling them
 
     // The hamburger button for the nav drawer
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var drawerLayout: DrawerLayout
     lateinit var fragmentContainer: FrameLayout
     lateinit var fragment: Fragment
-
-    // ingredient objects
-//    lateinit var vodka: Alcohol
-//    lateinit var gin: Alcohol
-//    lateinit var bourbon: Alcohol
-//    lateinit var blueCuracao: Alcohol
-//
-//    lateinit var lemon: Garnish
-//    lateinit var maraschinoCherry: Garnish
-//    lateinit var maraschinoSyrup: Garnish
-//
-//    lateinit var cola: Mixer
-//    lateinit var lemonJuice: Mixer
-//    lateinit var orangeJuice: Mixer
-//    lateinit var limeJuice: Mixer
-//    lateinit var sodaWater: Mixer
-//
-    // recipe objects
-//    lateinit var blueLagoon: CocktailRecipe
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,6 +45,12 @@ class MainActivity : AppCompatActivity() {
 
         // Adds a back arrow when the menu is open
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
+        // add objects to relevant lists
+        if (CocktailRecipe.cocktailList.isEmpty()) addCocktailsToList()
+        if (Ingredient.ingredientList.isEmpty()) addIngredientsToList()
+        if (Equipment.equipmentList.isEmpty()) addEquipmentToList()
 
         //moves the user to another fragment depending on which item is selected in the main activity
         //the activity representing the menu that appears from the side
@@ -106,6 +92,7 @@ class MainActivity : AppCompatActivity() {
             onBackPressed()
             true
         }
+
 
     }
 
@@ -151,40 +138,118 @@ class MainActivity : AppCompatActivity() {
         var gin = Alcohol("Gin")
         var bourbon = Alcohol("Bourbon")
         var blueCuracao = Alcohol("Blue Curacao")
+        var whiteRum = Alcohol("White rum")
 
         var lemon = Garnish("Lemon")
         var orange = Garnish("Orange")
         var lime = Garnish("Lime")
         var maraschinoCherry = Garnish("Maraschino cherries")
         var maraschinoSyrup = Garnish("Maraschino cherry syrup")
+        var pineapple = Garnish("Pineapple")
 
         var cola = Mixer("Cola")
         var lemonJuice = Mixer("Lemon juice")
         var orangeJuice = Mixer("Orange juice")
         var limeJuice = Mixer("Lime juice")
         var sodaWater = Mixer("Soda water")
+        var pineappleJuice = Mixer("Pineapple juice")
+        var coconutCream = Mixer("Coconut cream")
+
+        // Equipment objects
+        var shaker = Equipment("Shaker", R.drawable.martini_silhouette)
+        val blender = Equipment("Blender", R.drawable.martini_silhouette)
 
         // recipe objects
-        var blueLagoon = CocktailRecipe("Blue Lagoon", "Refreshing and blue.")
         var bluLagIngredients = mutableMapOf(
-                MainActivity.blueCuracao to 100,
-                MainActivity.vodka to 100,
-                MainActivity.lemon to -13,
-                MainActivity.orange to -13,
-                MainActivity.lime to -13,
-                MainActivity.maraschinoCherry to -108,
-                MainActivity.maraschinoSyrup to -11,
-                MainActivity.sodaWater to 200
+                blueCuracao to 100,
+                vodka to 100,
+                lemon to -13,
+                orange to -13,
+                lime to -13,
+                maraschinoCherry to -108,
+                maraschinoSyrup to -11,
+                sodaWater to 200
         )
-        var bluLagInstructions = mutableListOf<String>(
+        var bluLagInstructions = mutableListOf(
                 "Put the ice cubes in a large jug. Pour over the curaçao, vodka, fruit juices and " +
                         "1 tsp syrup from the cherries. Stir until the outside of the glass feels cold.",
                 "Half-fill four hurricane glasses with crushed ice, then strain in the cocktail.",
                 "Top up the glasses with the soda water and gently stir, " +
                         "then garnish with the maraschino cherries."
         )
+        var bluLagEquipment = mutableListOf(shaker)
+
+        var blueLagoon = CocktailRecipe(
+                "Blue Lagoon",
+                R.drawable.the_blue_lagoon_cocktail,
+                "A refreshing take on the classic blue lagoon.",
+                "A refreshing take on the classic blue lagoon with lemonade and " +
+                        "fresh citrus juice. This boozy retro classic cocktail is perfect for parties.",
+                bluLagEquipment,
+                bluLagIngredients,
+                bluLagInstructions
+        )
+
+        var pinaColadaIngredients = mutableMapOf(
+                whiteRum to 60,
+                coconutCream to 60,
+                pineappleJuice to 120,
+                pineapple to -3
+        )
+
+        var pinaColadaInstructions = mutableListOf(
+                "Pulse all the ingredients along with a handful of ice in a blender until " +
+                        "smooth. Pour into a tall glass and garnish as you like."
+        )
+
+        var pinaColadaEquipment = mutableListOf(blender)
+
+        var pinaColada = CocktailRecipe(
+                "Pina Colada",
+                R.drawable.pina_colada,
+                "A tangy blend of coconut, pineapple and rum",
+                "A tropical blend of rich coconut cream, white rum and tangy " +
+                        "pineapple – serve with an umbrella for kitsch appeal.",
+                pinaColadaEquipment,
+                pinaColadaIngredients,
+                pinaColadaInstructions
+        )
+
+        fun addCocktailsToList() {
+            CocktailRecipe.cocktailList.add(blueLagoon)
+            CocktailRecipe.cocktailList.add(pinaColada)
+        }
+
+        fun addIngredientsToList() {
+            Ingredient.ingredientList.add(vodka)
+            Ingredient.ingredientList.add(gin)
+            Ingredient.ingredientList.add(bourbon)
+            Ingredient.ingredientList.add(blueCuracao)
+            Ingredient.ingredientList.add(whiteRum)
+
+            Ingredient.ingredientList.add(lemon)
+            Ingredient.ingredientList.add(orange)
+            Ingredient.ingredientList.add(lime)
+            Ingredient.ingredientList.add(maraschinoCherry)
+            Ingredient.ingredientList.add(maraschinoSyrup)
+            Ingredient.ingredientList.add(pineapple)
+
+            Ingredient.ingredientList.add(cola)
+            Ingredient.ingredientList.add(lemonJuice)
+            Ingredient.ingredientList.add(orangeJuice)
+            Ingredient.ingredientList.add(limeJuice)
+            Ingredient.ingredientList.add(sodaWater)
+            Ingredient.ingredientList.add(pineappleJuice)
+            Ingredient.ingredientList.add(coconutCream)
+        }
+
+        fun addEquipmentToList() {
+            Equipment.equipmentList.add(shaker)
+            Equipment.equipmentList.add(blender)
+        }
 
     }
+
 
 
 }

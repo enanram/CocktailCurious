@@ -5,21 +5,25 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.*
+import java.lang.NullPointerException
 
 // a default title for the activity, in case of difficulty getting the name from the database
 const val DEFAULT_RECIPE_NAME = "Recipe Name"
 const val DEFAULT_DESCRIPTION = "Recipe description"
-lateinit var recipe: CocktailRecipe
 
 class RecipeActivity : AppCompatActivity() {
+    lateinit var recipe: CocktailRecipe
+    var defaultRecipeImage = R.drawable.martini_silhouette
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe)
 
 
-        // Get parceled recipe object from intent
-        recipe = intent.getParcelableExtra<CocktailRecipe>("recipeToShow")!!
+        // Get recipe object from intent via name string
+        val recipeName = intent.getStringExtra("recipe index")
+        recipe = findRecipeByName(recipeName!!)
+
 
         var iv_picture: ImageView = findViewById(R.id.recipe_image)
         var iv_favourite: ImageView = findViewById(R.id.recipe_favourite_icon)
@@ -35,17 +39,23 @@ class RecipeActivity : AppCompatActivity() {
         supportActionBar?.title = recipe.name ?: DEFAULT_RECIPE_NAME
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        iv_picture = findViewById(recipe.image ?: R.drawable.martini_silhouette)
+        try {
+            iv_picture.setImageResource(recipe.image)
+        } catch (e: NullPointerException) {
+            iv_picture.setImageResource(findViewById(defaultRecipeImage))
+        }
         tv_description.text = if (recipe.description == "") recipe.blurb else recipe.description
 
         tv_ingredients.text = formatIngredients(recipe.ingredients)
 
-        if (recipe!!.isFavourite) iv_favourite.setImageResource(R.mipmap.icon_star_on_foreground)
+        tv_equipment.text = formatEquipment(recipe.equipment)
+
+        if (recipe.isFavourite) iv_favourite.setImageResource(R.mipmap.icon_star_on_foreground)
 
 
-        iv_favourite.setOnClickListener {
-            toggleFavouriteButton(iv_favourite)
-        }
+//        iv_favourite.setOnClickListener {
+//            toggleFavouriteButton(iv_favourite)
+//        }
 
 
         tv_description.text = recipe.description
@@ -57,6 +67,7 @@ class RecipeActivity : AppCompatActivity() {
 
 
     }
+
     /**
      * when pressed, if the recipe object is held within the favourites list already, it is removed
      * if it is not held within, it is added
@@ -122,9 +133,14 @@ class RecipeActivity : AppCompatActivity() {
     fun formatInstructions(instructionList: MutableList<String>): String {
         // instructionsf stands for 'instructions formatted'
         var instructionsf = ""
-        instructionList.forEachIndexed { i, line ->
-            val num = i + 1
-            instructionsf += "$num. $line \n"
+
+        if(instructionList.size == 1) {
+            instructionsf = instructionList[0]
+        } else {
+            instructionList.forEachIndexed { i, line ->
+                val num = i + 1
+                instructionsf += "$num. $line \n"
+            }
         }
         // remove the newline from the last instruction
         return instructionsf.trimEnd()
@@ -134,10 +150,31 @@ class RecipeActivity : AppCompatActivity() {
     fun formatIngredients(ingredients: MutableMap<Ingredient, Int>): String {
         var ingredientsf = ""
         ingredients.forEach { ingredient ->
-            ingredientsf += quantityString(recipe.ingredients[ingredient.value]!!)
-            ingredientsf += ingredient.key.name + "/n"
+            ingredientsf += quantityString(ingredient.value)
+            ingredientsf += ingredient.key.name!!.toLowerCase() + "\n"
         }
         return ingredientsf.trimEnd()
     }
 
+    fun formatEquipment(equipList:MutableList<Equipment>): String {
+        var equipString = ""
+        if (equipList.isEmpty()) {
+            equipString = "None"
+        } else {
+            equipList.forEach {
+                equipString += it.name
+                equipString += "\n"
+            }
+        }
+        return equipString.trimEnd()
+    }
+
+    fun findRecipeByName(rName: String): CocktailRecipe {
+        var cocktailToReturn: CocktailRecipe? = null
+        CocktailRecipe.cocktailList.forEach {
+            if (it.name == rName) cocktailToReturn = it
+        }
+        if (cocktailToReturn == null) throw NoSuchElementException("Recipe not found.")
+        return cocktailToReturn!!
+    }
 }

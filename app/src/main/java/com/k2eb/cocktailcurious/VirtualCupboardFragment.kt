@@ -124,11 +124,12 @@ class VirtualCupboardFragment : Fragment() {
 
         // Inflate the display.
         val flater = layoutInflater.inflate(R.layout.fragment_search_popup, null)
-        val exitButton = view.findViewById<Button>(R.id.btn_x)
+
         ingredientRecycler = flater.findViewById(R.id.ingredient_results)
         ingredientRecycler.adapter = IngredientRecyclerAdapter(MainActivity.makeIngredientsList())
-
         val searchPopup = PopupWindow(ingredientRecycler)
+
+        val exitButton = view.findViewById<Button>(R.id.btn_x)
         exitButton.setOnClickListener {
             searchPopup.dismiss()
         }

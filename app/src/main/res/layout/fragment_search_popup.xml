@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ingredient_list"
+    android:id="@+id/search_list"
     android:name="com.enanram.cocktailcurious.IngredientSearchResults"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -38,5 +38,15 @@
         app:layoutManager="LinearLayoutManager"
         tools:context=".IngredientSearchResults"
         tools:listitem="@layout/fragment_search_card" />
+
+    <Button
+        android:id="@+id/btn_x"
+        android:layout_width="59dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@android:drawable/ic_menu_close_clear_cancel"
+        app:backgroundTint="@color/black" />
+
+
 
 </LinearLayout>

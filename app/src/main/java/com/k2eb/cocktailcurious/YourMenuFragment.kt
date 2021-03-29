@@ -12,17 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 
 class YourMenuFragment : Fragment() {
 
-    private lateinit var recipeAdapter: BrowseRecipesRecyclerAdapter
     lateinit var recipeRecycler: RecyclerView
     private var menuList = arrayListOf<String>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val card: Button? = view.findViewById(R.id.card_cocktail)
-        card?.setOnClickListener {
-            val intent = Intent(activity, RecipeActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     override fun onCreateView(

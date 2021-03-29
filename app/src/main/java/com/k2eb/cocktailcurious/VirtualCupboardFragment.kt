@@ -25,7 +25,7 @@ class VirtualCupboardFragment : Fragment() {
         val flater = inflater.inflate(R.layout.fragment_virtual_cupboard, container, false)
         cupboardRecycler = flater.findViewById(R.id.rv_ingredients)
         cupboardRecycler.layoutManager = LinearLayoutManager(cupboardRecycler.context)
-        cupboardRecycler.adapter = IngredientRecyclerAdapter(cupboardList)
+        cupboardRecycler.adapter = CupboardRecyclerAdapter(cupboardList)
         return flater
     }
 
@@ -47,9 +47,10 @@ class VirtualCupboardFragment : Fragment() {
         }
 
         bigAddButton.setOnClickListener {
+
             popupIngredientSearch(view)
         }
-        smallAddButton.setOnClickListener() {
+        smallAddButton.setOnClickListener {
             popupIngredientSearch(view)
         }
 
@@ -132,7 +133,7 @@ class VirtualCupboardFragment : Fragment() {
     private fun popupIngredientSearch(view: View) {
 
         // Inflate the display.
-        val flater: View = LayoutInflater.from(activity).inflate(R.layout.fragment_search_popup, null)
+        val flater: View = LayoutInflater.from(activity).inflate(R.layout.fragment_search_popup, null, false)
         ingredientRecycler = flater.findViewById(R.id.ingredient_results)
         val searchPopup = PopupWindow(ingredientRecycler)
         // Apply the adapter to the RecyclerView

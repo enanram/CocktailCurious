@@ -30,7 +30,6 @@ class IngredientRecyclerAdapter(
         holder.tvName.text = ingredients[position].name
 
         holder.cardView.setOnClickListener {
-
             holder.check.isChecked != holder.check.isChecked
             if (holder.check.isChecked) {
                 VirtualCupboardFragment.addIngredient(ingredients[position])

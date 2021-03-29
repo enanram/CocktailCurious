@@ -1,13 +1,12 @@
 package com.k2eb.cocktailcurious
 
+import android.app.ProgressDialog.show
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 
 
@@ -25,16 +24,39 @@ class VirtualCupboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setCupboardView(view)
 
         val letsGoButton = view.findViewById<Button>(R.id.btn_lets_go)
         val clearButton = view.findViewById<Button>(R.id.btn_clear_all)
+        val bigAddButton = view.findViewById<Button>(R.id.btn_big_add)
+        val smallAddButton = view.findViewById<Button>(R.id.btn_small_add)
+        val exitButton = view.findViewById<Button>(R.id.btn_x)
+
 
         letsGoButton.setOnClickListener {
             val transaction = this.fragmentManager?.beginTransaction()?.replace(R.id.fragment_container, YourMenuFragment())
             transaction?.addToBackStack(null)
             (activity as MainActivity).setTitleBar(getString(R.string.your_menu_title))
             transaction?.commit()
+        }
+
+        bigAddButton.setOnClickListener {
+            val searchPopup = PopupWindow()
+            val view = layoutInflater.inflate(R.layout.fragment_search_popup, null)
+            searchPopup.contentView = view
+            exitButton.setOnClickListener {
+                searchPopup.dismiss()
+            }
+            searchPopup.show()
+        }
+
+        smallAddButton.setOnClickListener() {
+            val searchPopup = PopupWindow()
+            val view = layoutInflater.inflate(R.layout.fragment_search_popup, null)
+            searchPopup.contentView = view
+            exitButton.setOnClickListener {
+                searchPopup.dismiss()
+            }
+            searchPopup.show()
         }
 
         clearButton.setOnClickListener {
@@ -82,43 +104,30 @@ class VirtualCupboardFragment : Fragment() {
         val btnClearAll = view.findViewById<Button>(R.id.btn_clear_all)
         val rvIngredients = view.findViewById<RecyclerView>(R.id.rv_ingredients)
         if (cupboardList.size == 0) {
-            //findViewById(R.id.btn_big_add) setVisbility (View.VISIBLE)
             btnBigAdd.isClickable = true
             btnBigAdd.visibility = View.VISIBLE
-            //findViewById(R.id.txv_prompt) setVisbility (View.VISIBLE)
             txvPrompt.visibility = View.VISIBLE
-            //findViewById(R.id.btn_small_add) setVisbility (View.INVISIBLE)
             btnSmallAdd.isClickable = false
             btnSmallAdd.visibility = View.INVISIBLE
-            //findViewById(R.id.btn_lets_go) setVisbility (View.INVISIBLE)
             btnLetsGo.isClickable = false
             btnLetsGo.visibility = View.INVISIBLE
-            //findViewById(R.id.btn_clear_all) setVisbility (View.INVISIBLE)
             btnClearAll.isClickable = false
             btnClearAll.visibility = View.INVISIBLE
-            //findViewById(R.id.rv_ingredients) setVisbility (View.INVISIBLE)
             rvIngredients.isClickable = false
             rvIngredients.visibility = View.INVISIBLE
         } else {
-            //view.findViewById<Button>(R.id.btn_big_add) setVisbility (View.INVISIBLE)
             btnBigAdd.isClickable = false
             btnBigAdd.visibility = View.INVISIBLE
-            //view.findViewById<TextView>(R.id.txv_prompt) setVisbility (View.INVISIBLE)
             txvPrompt.visibility = View.INVISIBLE
-            //view.findViewById<Button>(R.id.btn_small_add) setVisbility (View.VISIBLE)
             btnSmallAdd.isClickable = true
             btnSmallAdd.visibility = View.VISIBLE
-            //view.findViewById<Button>(R.id.btn_lets_go) setVisbility (View.VISIBLE)
             btnLetsGo.isClickable = true
             btnLetsGo.visibility = View.VISIBLE
-            //view.findViewById<Button>(R.id.btn_clear_all) setVisbility (View.VISIBLE)
             btnClearAll.isClickable = true
             btnClearAll.visibility = View.VISIBLE
-            //view.findViewById<Button>(R.id.rv_ingredients) setVisbility (View.VISIBLE)
             rvIngredients.isClickable = true
             rvIngredients.visibility = View.VISIBLE
         }
-        searchPopup.showAtLocation(view, Gravity.CENTER, 0, 0)
     }
 
     // TODO method to add/remove ingredients to cupboard database

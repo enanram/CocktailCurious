@@ -40,14 +40,14 @@
         android:layout_width="86dp"
         android:layout_height="70dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="24dp"
         android:background="@android:drawable/ic_menu_add"
+        android:visibility="visible"
         app:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_lets_go"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/btn_clear_all"
-        android:visibility="visible"/>
+        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintStart_toEndOf="@+id/btn_clear_all" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_ingredients"

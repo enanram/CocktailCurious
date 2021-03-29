@@ -20,32 +20,12 @@ const val EXTRA_MESSAGE = "com.k2eb.cocktailcurious.MESSAGE"
 
 class MainActivity : AppCompatActivity() {
 
-    //TODO create some ingredients and equipment and try parceling them
 
     // The hamburger button for the nav drawer
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var drawerLayout: DrawerLayout
     lateinit var fragmentContainer: FrameLayout
     lateinit var fragment: Fragment
-
-    // ingredient objects
-//    lateinit var vodka: Alcohol
-//    lateinit var gin: Alcohol
-//    lateinit var bourbon: Alcohol
-//    lateinit var blueCuracao: Alcohol
-//
-//    lateinit var lemon: Garnish
-//    lateinit var maraschinoCherry: Garnish
-//    lateinit var maraschinoSyrup: Garnish
-//
-//    lateinit var cola: Mixer
-//    lateinit var lemonJuice: Mixer
-//    lateinit var orangeJuice: Mixer
-//    lateinit var limeJuice: Mixer
-//    lateinit var sodaWater: Mixer
-//
-    // recipe objects
-//    lateinit var blueLagoon: CocktailRecipe
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,11 +47,10 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
-        // make a list of all cocktail recipes
-        if (CocktailRecipe.cocktailList.isEmpty()) {
-            CocktailRecipe.cocktailList.add(blueLagoon)
-            CocktailRecipe.cocktailList.add(pinaColada)
-        }
+        // add objects to relevant lists
+        if (CocktailRecipe.cocktailList.isEmpty()) addCocktailsToList()
+        if (Ingredient.ingredientList.isEmpty()) addIngredientsToList()
+        if (Equipment.equipmentList.isEmpty()) addEquipmentToList()
 
         //moves the user to another fragment depending on which item is selected in the main activity
         //the activity representing the menu that appears from the side
@@ -236,9 +215,38 @@ class MainActivity : AppCompatActivity() {
                 pinaColadaInstructions
         )
 
+        fun addCocktailsToList() {
+            CocktailRecipe.cocktailList.add(blueLagoon)
+            CocktailRecipe.cocktailList.add(pinaColada)
+        }
 
+        fun addIngredientsToList() {
+            Ingredient.ingredientList.add(vodka)
+            Ingredient.ingredientList.add(gin)
+            Ingredient.ingredientList.add(bourbon)
+            Ingredient.ingredientList.add(blueCuracao)
+            Ingredient.ingredientList.add(whiteRum)
 
+            Ingredient.ingredientList.add(lemon)
+            Ingredient.ingredientList.add(orange)
+            Ingredient.ingredientList.add(lime)
+            Ingredient.ingredientList.add(maraschinoCherry)
+            Ingredient.ingredientList.add(maraschinoSyrup)
+            Ingredient.ingredientList.add(pineapple)
 
+            Ingredient.ingredientList.add(cola)
+            Ingredient.ingredientList.add(lemonJuice)
+            Ingredient.ingredientList.add(orangeJuice)
+            Ingredient.ingredientList.add(limeJuice)
+            Ingredient.ingredientList.add(sodaWater)
+            Ingredient.ingredientList.add(pineappleJuice)
+            Ingredient.ingredientList.add(coconutCream)
+        }
+
+        fun addEquipmentToList() {
+            Equipment.equipmentList.add(shaker)
+            Equipment.equipmentList.add(blender)
+        }
 
     }
 

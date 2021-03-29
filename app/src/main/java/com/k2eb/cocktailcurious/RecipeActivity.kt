@@ -48,6 +48,8 @@ class RecipeActivity : AppCompatActivity() {
 
         tv_ingredients.text = formatIngredients(recipe.ingredients)
 
+        tv_equipment.text = formatEquipment(recipe.equipment)
+
         if (recipe.isFavourite) iv_favourite.setImageResource(R.mipmap.icon_star_on_foreground)
 
 
@@ -152,6 +154,19 @@ class RecipeActivity : AppCompatActivity() {
             ingredientsf += ingredient.key.name!!.toLowerCase() + "\n"
         }
         return ingredientsf.trimEnd()
+    }
+
+    fun formatEquipment(equipList:MutableList<Equipment>): String {
+        var equipString = ""
+        if (equipList.isEmpty()) {
+            equipString = "None"
+        } else {
+            equipList.forEach {
+                equipString += it.name
+                equipString += "\n"
+            }
+        }
+        return equipString.trimEnd()
     }
 
     fun findRecipeByName(rName: String): CocktailRecipe {

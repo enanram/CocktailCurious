@@ -9,6 +9,7 @@ class CocktailRecipe(
 		recipeBlurb: String?
 ) : Parcelable {
 	var name = recipeName
+	var image = R.drawable.martini_silhouette
 	var blurb = recipeBlurb
 	var description = ""
 	var isFavourite = false
@@ -82,6 +83,9 @@ class CocktailRecipe(
 //		}
 	}
 
+	/**
+	 * each element of the object that will be used by other classes is placed within a parcel
+	 */
 	override fun writeToParcel(parcel: Parcel, flags: Int) {
 		parcel.writeString(name)
 		parcel.writeInt(image)

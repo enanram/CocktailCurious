@@ -35,12 +35,16 @@ class BrowseRecipesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        /**
+         * Inflate the layout for this fragment
+          */
         val flater = inflater.inflate(R.layout.fragment_browse_recipes, container, false)
         recipeRecycler = flater.findViewById(R.id.recipe_results_recycler)
         recipeRecycler.layoutManager = LinearLayoutManager(recipeRecycler.context)
 
-        // Insert
+        /**
+         * Insert
+          */
         makeDummyList()
         recipeRecycler.adapter = BrowseRecipesRecyclerAdapter(cocktailList)
 

@@ -60,8 +60,11 @@ class RecipeActivity : AppCompatActivity() {
 
 
     }
-
-    fun toggleFavouriteButton(iv_favourite: ImageView) {
+    /**
+     * when pressed, if the recipe object is held within the favourites list already, it is removed
+     * if it is not held within, it is added
+     */
+    private fun toggleFavouriteButton(iv_favourite: ImageView) {
         if(recipe.isFavourite) {
             recipe.removeFromFavourites()
             iv_favourite.setImageResource(R.mipmap.icon_star_off_foreground)
@@ -69,6 +72,10 @@ class RecipeActivity : AppCompatActivity() {
             recipe.addToFavourites()
             iv_favourite.setImageResource(R.mipmap.icon_star_on_foreground)
         }
+    }
+
+    private fun shareToSocials() {
+        Toast.makeText(this, "Shared to social media!", Toast.LENGTH_LONG).show()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

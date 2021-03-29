@@ -63,7 +63,6 @@ class MainActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-        vodka
         // Adds a back arrow when the menu is open
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -72,6 +71,7 @@ class MainActivity : AppCompatActivity() {
         navView.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.nav_virtual_cupboard -> {
+//                    Toast.makeText(applicationContext, "clicked virtual cupboard", Toast.LENGTH_LONG).show()
                     var transaction = supportFragmentManager.beginTransaction().replace(R.id.fragment_container, VirtualCupboardFragment())
                     transaction.addToBackStack(null)
                     setTitleBar(getString(R.string.virtual_cupboard_title))
@@ -79,6 +79,7 @@ class MainActivity : AppCompatActivity() {
 
                 }
                 R.id.nav_your_menu -> {
+//                    Toast.makeText(applicationContext, "clicked your menu", Toast.LENGTH_LONG).show()
                     var transaction = supportFragmentManager.beginTransaction().replace(R.id.fragment_container, YourMenuFragment())
                     transaction.addToBackStack(null)
                     setTitleBar(getString(R.string.your_menu_title))
@@ -86,6 +87,7 @@ class MainActivity : AppCompatActivity() {
 
                 }
                 R.id.nav_favourites -> {
+//                    Toast.makeText(applicationContext, "clicked favourites", Toast.LENGTH_LONG).show()
                     var transaction = supportFragmentManager.beginTransaction().replace(R.id.fragment_container, FavouritesFragment())
                     transaction.addToBackStack(null)
                     setTitleBar(getString(R.string.favourites_title))
@@ -93,6 +95,7 @@ class MainActivity : AppCompatActivity() {
 
                 }
                 R.id.nav_browse_recipes -> {
+//                    Toast.makeText(applicationContext, "clicked browse recipes", Toast.LENGTH_LONG).show()
                     var transaction = supportFragmentManager.beginTransaction().replace(R.id.fragment_container, BrowseRecipesFragment())
                     transaction.addToBackStack(null)
                     setTitleBar(getString(R.string.browse_recipes_title))

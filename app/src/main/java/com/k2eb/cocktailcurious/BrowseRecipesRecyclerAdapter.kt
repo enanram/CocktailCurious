@@ -20,6 +20,9 @@ class BrowseRecipesRecyclerAdapter(
 
     lateinit var mcxt: Context
 
+    /**
+     * returns the size of the cocktail list
+     */
     override fun getItemCount(): Int {
         return cocktails.size
     }

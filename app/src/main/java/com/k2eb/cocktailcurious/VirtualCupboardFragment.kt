@@ -118,6 +118,7 @@ class VirtualCupboardFragment : Fragment() {
             rvIngredients.isClickable = true
             rvIngredients.visibility = View.VISIBLE
         }
+        searchPopup.showAtLocation(view, Gravity.CENTER, 0, 0)
     }
 
     // TODO method to add/remove ingredients to cupboard database

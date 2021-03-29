@@ -158,8 +158,8 @@ class MainActivity : AppCompatActivity() {
         var coconutCream = Mixer("Coconut cream")
 
         // Equipment objects
-        var shaker = Equipment("Shaker", R.drawable.martini_silhouette)
-        val blender = Equipment("Blender", R.drawable.martini_silhouette)
+        var shaker = Equipment("Shaker", R.drawable.shaker_silhoutte)
+        val blender = Equipment("Blender", R.drawable.blender_silhouette)
 
         // recipe objects
         var bluLagIngredients = mutableMapOf(

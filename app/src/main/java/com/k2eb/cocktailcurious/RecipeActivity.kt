@@ -14,6 +14,7 @@ const val DEFAULT_DESCRIPTION = "Recipe description"
 class RecipeActivity : AppCompatActivity() {
     lateinit var recipe: CocktailRecipe
     var defaultRecipeImage = R.drawable.martini_silhouette
+    lateinit var iv_favourite: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +27,7 @@ class RecipeActivity : AppCompatActivity() {
 
 
         var iv_picture: ImageView = findViewById(R.id.recipe_image)
-        var iv_favourite: ImageView = findViewById(R.id.recipe_favourite_icon)
+        iv_favourite = findViewById(R.id.recipe_favourite_icon)
         var iv_share: ImageView = findViewById(R.id.recipe_share_icon)
         var tv_description: TextView = findViewById(R.id.recipe_description)
         var tv_ingredients: TextView = findViewById(R.id.recipe_ingredients)
@@ -50,7 +51,7 @@ class RecipeActivity : AppCompatActivity() {
 
         tv_equipment.text = formatEquipment(recipe.equipment)
 
-        if (recipe.isFavourite) iv_favourite.setImageResource(R.mipmap.icon_star_on_foreground)
+        updateFavouriteImage()
 
 
 //        iv_favourite.setOnClickListener {
@@ -72,12 +73,15 @@ class RecipeActivity : AppCompatActivity() {
      * when pressed, if the recipe object is held within the favourites list already, it is removed
      * if it is not held within, it is added
      */
-    private fun toggleFavouriteButton(iv_favourite: ImageView) {
+    private fun toggleFavouriteButton() {
+        recipe.isFavourite = !recipe.isFavourite
+        updateFavouriteImage()
+    }
+
+    private fun updateFavouriteImage() {
         if(recipe.isFavourite) {
-            recipe.removeFromFavourites()
             iv_favourite.setImageResource(R.mipmap.icon_star_off_foreground)
         } else {
-            recipe.addToFavourites()
             iv_favourite.setImageResource(R.mipmap.icon_star_on_foreground)
         }
     }

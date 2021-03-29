@@ -28,6 +28,14 @@ class IngredientRecyclerAdapter(
 
     override fun onBindViewHolder(holder: IngredientViewHolder, position: Int) {
         holder.tvName.text = ingredients[position].name
+
+        holder.cardView.setOnClickListener {
+
+            holder.check.isChecked != holder.check.isChecked
+            if (holder.check.isChecked) {
+                VirtualCupboardFragment.addIngredient(ingredients[position])
+            }
+        }
     }
 
     class IngredientViewHolder(itemView: View) :
@@ -36,5 +44,4 @@ class IngredientRecyclerAdapter(
             var check: CheckBox = itemView.findViewById(R.id.ingredient_can_has)
             var tvName: TextView = itemView.findViewById(R.id.ingredient_name)
     }
-
 }

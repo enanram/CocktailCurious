@@ -3,19 +3,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/card_ingredient"
+    android:id="@+id/card_cupboard"
     android:layout_gravity="top"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:ignore="ExtraText">
 
     <LinearLayout
-        android:id="@+id/ingredient_linear"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/cupboare_ingredient"
             android:layout_width="355dp"
             android:layout_height="match_parent"
             android:paddingStart="20dp"

@@ -27,7 +27,7 @@ class BrowseRecipesRecyclerAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         mcxt = parent.context
         val inflater = LayoutInflater.from(mcxt)
-        val view: View = inflater.inflate(R.layout.fragment_browse_card, parent, false)
+        val view: View = inflater.inflate(R.layout.fragment_browse_card, null)
         return RecipeViewHolder(view)
     }
 

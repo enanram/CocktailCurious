@@ -9,13 +9,18 @@
     android:focusable="true"
     tools:ignore="ExtraText">
 
+
     // A card view that contains details for each search result. //
+
     <RelativeLayout
         android:id="@+id/cocktail_relative"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         // A place for a photo of the cocktail to go. //
+
+
+
         <ImageView
             android:id="@+id/cocktail_image"
             android:layout_width="120dp"
@@ -57,10 +62,11 @@
                     android:src="@mipmap/icon_mocktail_foreground"
                     android:visibility="gone"/>
                 <ImageView
-                    android:id="@+id/cocktail_favourite"
+                    android:id="@+id/cocktail_card_favourite"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@mipmap/icon_star_off_foreground"/>
+                    android:src="@mipmap/icon_star_off_foreground"
+                    android:focusable="false"/>
             </LinearLayout>
 
             // A field to put a short description on the cocktail. //
@@ -76,13 +82,16 @@
             //Hopefully we can replace the stars in this with our own cocktail icons //
             <RatingBar
                 android:id="@+id/cocktail_rating"
-                style="@style/Widget.AppCompat.RatingBar.Small"
+                style="@style/customRatingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"/>
+                android:layout_gravity="right"
+                android:clickable="false"/>
 
 
         </LinearLayout>
+
+
     </RelativeLayout>
 
 

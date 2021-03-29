@@ -111,6 +111,9 @@ class RecipeActivity : AppCompatActivity() {
             -12 -> "2 teaspoons of "
             -13 -> "Juice of one "
             -14 -> "Small handful of"
+            -15 -> "Juice of half a "
+            -16 -> "1 tablespoon of "
+            -17 -> "2 tablespoons of "
 
             -101 -> "One "
             -102 -> "Two "

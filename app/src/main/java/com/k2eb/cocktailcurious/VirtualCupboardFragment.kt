@@ -55,6 +55,20 @@ class VirtualCupboardFragment : Fragment() {
             transaction?.commit()
         }
 
+
+        bigAddButton.setOnClickListener {
+            val transaction = this.fragmentManager?.beginTransaction()?.replace(R.id.fragment_container, IngredientSearchFragment())
+            transaction?.addToBackStack(null)
+            (activity as MainActivity).setTitleBar("Ingredient Search")
+            transaction?.commit()
+        }
+        smallAddButton.setOnClickListener {
+            val transaction = this.fragmentManager?.beginTransaction()?.replace(R.id.fragment_container, IngredientSearchFragment())
+            transaction?.addToBackStack(null)
+            (activity as MainActivity).setTitleBar("Ingredient Search")
+            transaction?.commit()
+        }
+
         clearButton.setOnClickListener {
             if (cupboardList.isEmpty()) {
                 Toast.makeText(activity, "Your cupboard is empty.", Toast.LENGTH_LONG).show()

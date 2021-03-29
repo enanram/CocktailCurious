@@ -20,8 +20,6 @@ const val EXTRA_MESSAGE = "com.k2eb.cocktailcurious.MESSAGE"
 
 class MainActivity : AppCompatActivity() {
 
-    //TODO create some ingredients and equipment and try parceling them
-
     // The hamburger button for the nav drawer
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var drawerLayout: DrawerLayout

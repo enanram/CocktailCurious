@@ -332,6 +332,8 @@ class MainActivity : AppCompatActivity() {
             Ingredient.ingredientList.add(whiteRum)
             Ingredient.ingredientList.add(darkRum)
             Ingredient.ingredientList.add(tripleSec)
+            Ingredient.ingredientList.add(cremeDeMenthe)
+            Ingredient.ingredientList.add(whiteCreme)
 
             Ingredient.ingredientList.add(lemon)
             Ingredient.ingredientList.add(orange)
@@ -351,6 +353,8 @@ class MainActivity : AppCompatActivity() {
             Ingredient.ingredientList.add(coconutCream)
             Ingredient.ingredientList.add(grenadine)
             Ingredient.ingredientList.add(almondSyrup)
+            Ingredient.ingredientList.add(singleCream)
+            Ingredient.ingredientList.add(ice)
         }
 
         fun addEquipmentToList() {

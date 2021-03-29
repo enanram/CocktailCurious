@@ -38,5 +38,4 @@ class BrowseRecipesFragment : Fragment() {
                 }
             }
     }
-    }
 }

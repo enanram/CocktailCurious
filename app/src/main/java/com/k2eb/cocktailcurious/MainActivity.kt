@@ -283,26 +283,6 @@ class MainActivity : AppCompatActivity() {
             Equipment.equipmentList.add(shaker)
             Equipment.equipmentList.add(blender)
         }
-
-        fun makeIngredientsList(): List<Ingredient> {
-            var ingredientsList = mutableListOf<Ingredient>()
-
-            ingredientsList.add(vodka)
-            ingredientsList.add(gin)
-            ingredientsList.add(bourbon)
-            ingredientsList.add(blueCuracao)
-            ingredientsList.add(cola)
-            ingredientsList.add(orangeJuice)
-            ingredientsList.add(orange)
-            ingredientsList.add(lemonJuice)
-            ingredientsList.add(lemon)
-            ingredientsList.add(limeJuice)
-            ingredientsList.add(lime)
-            ingredientsList.add(sodaWater)
-
-            return ingredientsList
-        }
-
     }
 
 

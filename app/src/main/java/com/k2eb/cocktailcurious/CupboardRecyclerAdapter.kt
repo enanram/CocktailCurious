@@ -30,10 +30,11 @@ class CupboardRecyclerAdapter(
         holder.tvName.text = ingredients[position].name
 
         holder.ivTrash.setOnClickListener {
-                VirtualCupboardFragment.removeIngredient(ingredients[position])
+            Ingredient.cupboardList.remove(ingredients[position])
+            notifyDataSetChanged()
             }
-        }
 
+        }
 
     class IngredientViewHolder(itemView: View) :
             RecyclerView.ViewHolder(itemView) {

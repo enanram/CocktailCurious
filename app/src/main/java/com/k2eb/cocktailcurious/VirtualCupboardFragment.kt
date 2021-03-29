@@ -2,11 +2,13 @@ package com.k2eb.cocktailcurious
 
 import android.app.ProgressDialog.show
 import android.os.Bundle
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 
@@ -14,6 +16,8 @@ class VirtualCupboardFragment : Fragment() {
 
     var isEmpty = true
     var cupboardList = mutableListOf<Ingredient>()
+    lateinit var ingredientRecycler: RecyclerView
+    lateinit var cupboardRecycler: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +35,9 @@ class VirtualCupboardFragment : Fragment() {
         val smallAddButton = view.findViewById<Button>(R.id.btn_small_add)
         val exitButton = view.findViewById<Button>(R.id.btn_x)
 
+        setCupboardView(view)
+        cupboardRecycler.adapter = IngredientRecyclerAdapter(MainActivity.makeIngredientList())
+
 
         letsGoButton.setOnClickListener {
             val transaction = this.fragmentManager?.beginTransaction()?.replace(R.id.fragment_container, YourMenuFragment())
@@ -40,23 +47,24 @@ class VirtualCupboardFragment : Fragment() {
         }
 
         bigAddButton.setOnClickListener {
-            val searchPopup = PopupWindow()
-            val view = layoutInflater.inflate(R.layout.fragment_search_popup, null)
-            searchPopup.contentView = view
+            // Inflate the display.
+            val flater = layoutInflater.inflate(R.layout.fragment_search_popup, null)
+            ingredientRecycler = flater.findViewById(R.id.ingredient_results)
+            ingredientRecycler.layoutManager = LinearLayoutManager(ingredientRecycler.context)
+            val searchPopup = PopupWindow(ingredientRecycler)
             exitButton.setOnClickListener {
                 searchPopup.dismiss()
             }
-            searchPopup.show()
+            searchPopup.showAtLocation(view, Gravity.CENTER,0,0)
         }
 
         smallAddButton.setOnClickListener() {
             val searchPopup = PopupWindow()
-            val view = layoutInflater.inflate(R.layout.fragment_search_popup, null)
+            val popup = layoutInflater.inflate(R.layout.fragment_search_popup, null)
             searchPopup.contentView = view
             exitButton.setOnClickListener {
                 searchPopup.dismiss()
             }
-            searchPopup.show()
         }
 
         clearButton.setOnClickListener {

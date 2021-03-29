@@ -4,10 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ImageView
-import android.widget.RatingBar
-import android.widget.TextView
-import android.widget.Toolbar
+import android.widget.*
 
 // a default title for the activity, in case of difficulty getting the name from the database
 const val DEFAULT_RECIPE_NAME = "Recipe Name"

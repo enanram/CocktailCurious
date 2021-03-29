@@ -237,11 +237,8 @@ class MainActivity : AppCompatActivity() {
         )
 
 
-
-
-
         fun makeIngredientsList(): List<Ingredient> {
-            var ingredientsList = mutableListOf<Ingredient>()
+            val ingredientsList = mutableListOf<Ingredient>()
 
             ingredientsList.add(vodka)
             ingredientsList.add(gin)

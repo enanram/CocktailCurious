@@ -1,34 +1,36 @@
 package com.k2eb.cocktailcurious
 
-import android.app.ProgressDialog.show
 import android.os.Bundle
 import android.view.Gravity
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 
 class VirtualCupboardFragment : Fragment() {
 
-    var isEmpty = true
-    var cupboardList = mutableListOf<Ingredient>()
     lateinit var ingredientRecycler: RecyclerView
     lateinit var cupboardRecycler: RecyclerView
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        //cupboardList = mutableListOf<Ingredient>()
+    override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        val flater = inflater.inflate(R.layout.fragment_virtual_cupboard, container, false)
+        cupboardRecycler = flater.findViewById(R.id.rv_ingredients)
+        cupboardRecycler.layoutManager = LinearLayoutManager(cupboardRecycler.context)
+        cupboardRecycler.adapter = IngredientRecyclerAdapter(cupboardList)
+        return flater
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        setCupboardView(view)
 
         val letsGoButton = view.findViewById<Button>(R.id.btn_lets_go)
         val clearButton = view.findViewById<Button>(R.id.btn_clear_all)
@@ -60,35 +62,40 @@ class VirtualCupboardFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_virtual_cupboard, container, false)
-    }
-
-
-
     companion object {
+
+        var isEmpty = true
+        var cupboardList = mutableListOf<Ingredient>()
+
         @JvmStatic
         fun newInstance() =
             VirtualCupboardFragment().apply {
                 arguments = Bundle().apply {
                 }
             }
+
+        // Add ingredient. Includes check for empty cupboard
+        fun addIngredient(ingredient: Ingredient) {
+            cupboardList.add(ingredient)
+            if (cupboardList.size > 0) {
+                isEmpty = false
+            }
+        }
+
+        // Remove ingredient. Includes check for empty cupboard
+        fun removeIngredient(ingredient: Ingredient) {
+            cupboardList.remove(ingredient)
+            if (cupboardList.size == 0) {
+                isEmpty = true
+            }
+        }
     }
-
-    // TODO method that sets the view in the virtual cupboard
-
-   // fun setCupboardView (view : View) {
-    // }
 
     /**
      * sets the buttons, textview and recyclerviews available on the view depending on the
      * size of the cupboardList
      */
-    fun setCupboardView(view: View) {
+    private fun setCupboardView(view: View) {
         val btnBigAdd = view.findViewById<Button>(R.id.btn_big_add)
         val txvPrompt = view.findViewById<TextView>(R.id.txv_prompt)
         val btnSmallAdd = view.findViewById<Button>(R.id.btn_small_add)
@@ -122,57 +129,19 @@ class VirtualCupboardFragment : Fragment() {
         }
     }
 
-    fun popupIngredientSearch(view: View) {
+    private fun popupIngredientSearch(view: View) {
 
         // Inflate the display.
-        val flater = layoutInflater.inflate(R.layout.fragment_search_popup, null)
-
+        val flater: View = LayoutInflater.from(activity).inflate(R.layout.fragment_search_popup, null)
         ingredientRecycler = flater.findViewById(R.id.ingredient_results)
-        ingredientRecycler.adapter = IngredientRecyclerAdapter(MainActivity.makeIngredientsList())
         val searchPopup = PopupWindow(ingredientRecycler)
-
-        val exitButton = view.findViewById<Button>(R.id.btn_x)
+        // Apply the adapter to the RecyclerView
+        ingredientRecycler.adapter = IngredientRecyclerAdapter(MainActivity.makeIngredientsList())
+        // Allow the exit button to close the popup
+        val exitButton = flater.findViewById<Button>(R.id.btn_x)
         exitButton.setOnClickListener {
             searchPopup.dismiss()
         }
-        searchPopup.showAtLocation(view, Gravity.CENTER,0,0)
+        searchPopup.showAtLocation(view, Gravity.CENTER, 0, 0)
     }
-
-
-    /**
-     * Add ingredient
-     * Include check for empty cupboard
-     */
-
-    fun addIngredient(ingredient: Ingredient) {
-        cupboardList.add(ingredient)
-        if (cupboardList.size > 0) {
-            isEmpty = false
-        }
-    }
-
-    /**
-     * Remove ingredient
-     * Include check for empty cupboard
-     */
-
-    fun removeIngredient(ingredient: Ingredient) {
-        cupboardList.remove(ingredient)
-        if (cupboardList.size == 0) {
-            isEmpty = true
-        }
-    }
-
-    /**
-     * if the cupboardList is empty then the user is informed that it's already empty
-     * else, the list is cleared
-     */
-    fun onClickClearAll() {
-        if (cupboardList.isEmpty()) {
-            Toast.makeText(activity,"Your cupboard is already empty", Toast.LENGTH_SHORT).show()
-        } else {
-            cupboardList.clear()
-        }
-    }
-
 }

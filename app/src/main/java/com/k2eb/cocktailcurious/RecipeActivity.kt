@@ -4,10 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ImageView
-import android.widget.RatingBar
-import android.widget.TextView
-import android.widget.Toolbar
+import android.widget.*
 
 // a default title for the activity, in case of difficulty getting the name from the database
 const val DEFAULT_RECIPE_NAME = "Recipe Name"
@@ -23,7 +20,7 @@ class RecipeActivity : AppCompatActivity() {
         /**
          * Get parceled recipe object from intent
          */
-        recipe = intent.getParcelableExtra<CocktailRecipe>("recipeToShow")!!
+        recipe = intent.getParcelableExtra("recipeToShow")!!
 
         var iv_picture: ImageView = findViewById(R.id.recipe_image)
         var iv_favourite: ImageView = findViewById(R.id.recipe_favourite_icon)
@@ -40,7 +37,17 @@ class RecipeActivity : AppCompatActivity() {
         supportActionBar?.title = recipe.name ?: DEFAULT_RECIPE_NAME
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        iv_picture = findViewById(recipe.image ?: R.drawable.martini_silhouette)
+        iv_picture.setImageResource(R.drawable.martini_silhouette)
+
+        if (recipe.isFavourite) iv_favourite.setImageResource(R.mipmap.icon_star_on_foreground)
+        iv_favourite.setOnClickListener {
+            toggleFavouriteButton(iv_favourite)
+        }
+
+        iv_share.setOnClickListener {
+            shareToSocials()
+        }
+
         tv_description.text = recipe.description ?: recipe.blurb
 
         var ingredientString = ""
@@ -49,29 +56,14 @@ class RecipeActivity : AppCompatActivity() {
 
             ingredientString += ingredient.name + "/n"
         }
-
-
-        if (recipe!!.isFavourite) iv_favourite.setImageResource(R.mipmap.icon_star_on_foreground)
-
-
-        iv_favourite.setOnClickListener {
-            toggleFavouriteButton(iv_favourite)
-        }
-
-
-        tv_description.setText(recipe.description)
-        //tv_ingredients.setText(recipe.ingredients)
-        //tv_equipment
-        //ratBar_rating.setOnClickListener(
-
+        tv_ingredients.text = ingredientString
 
     }
-
     /**
      * when pressed, if the recipe object is held within the favourites list already, it is removed
      * if it is not held within, it is added
      */
-    fun toggleFavouriteButton(iv_favourite: ImageView) {
+    private fun toggleFavouriteButton(iv_favourite: ImageView) {
         if(recipe.isFavourite) {
             recipe.removeFromFavourites()
             iv_favourite.setImageResource(R.mipmap.icon_star_off_foreground)
@@ -79,6 +71,10 @@ class RecipeActivity : AppCompatActivity() {
             recipe.addToFavourites()
             iv_favourite.setImageResource(R.mipmap.icon_star_on_foreground)
         }
+    }
+
+    private fun shareToSocials() {
+        Toast.makeText(this, "Shared to social media!", Toast.LENGTH_LONG).show()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

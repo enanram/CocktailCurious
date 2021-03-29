@@ -1,34 +1,22 @@
 package com.k2eb.cocktailcurious
 
-import android.os.Parcel
-import android.os.Parcelable
+import androidx.versionedparcelable.VersionedParcelize
 import java.lang.IllegalArgumentException
 
+
 class CocktailRecipe(
-		recipeName: String?,
-		recipeBlurb: String?
-) : Parcelable {
-	var name = recipeName
-	var image = R.drawable.martini_silhouette
-	var blurb = recipeBlurb
-	var description = ""
+		var name: String,
+		var image: Int,
+		var blurb: String,
+		var description: String,
+		var equipment: MutableList<Equipment>,
+		var ingredients: MutableMap<Ingredient, Int>,
+		var instructions: MutableList<String>
+)  {
 	var isFavourite = false
-	// Rating out of 5 - 0 means no rating
 	var rating = 0
-	var equipment: List<Equipment> = mutableListOf()
-	var ingredients = mutableMapOf<Ingredient, Int>()
-	var instructions = mutableListOf<String>()
 
-	constructor(parcel: Parcel) : this(
-			parcel.readString(),
-			parcel.readString()) {
-		isFavourite = parcel.readByte() != 0.toByte()
-		rating = parcel.readInt()
-	}
 
-	fun quantityString() {
-
-	}
 
 	/**
 	 * sets the rating which should be between 1 and 5. 0 means no rating.
@@ -82,30 +70,8 @@ class CocktailRecipe(
 //		}
 	}
 
-	/**
-	 * each element of the object that will be used by other classes is placed within a parcel
-	 */
-	override fun writeToParcel(parcel: Parcel, flags: Int) {
-		parcel.writeString(name)
-		parcel.writeInt(image)
-		parcel.writeString(blurb)
-		parcel.writeString(description)
-		parcel.writeByte(if (isFavourite) 1 else 0)
-		parcel.writeInt(rating)
+
+	companion object {
+		val cocktailList = mutableListOf<CocktailRecipe>()
 	}
-
-	override fun describeContents(): Int {
-		return 0
-	}
-
-	companion object CREATOR : Parcelable.Creator<CocktailRecipe> {
-		override fun createFromParcel(parcel: Parcel): CocktailRecipe {
-			return CocktailRecipe(parcel)
-		}
-
-		override fun newArray(size: Int): Array<CocktailRecipe?> {
-			return arrayOfNulls(size)
-		}
-	}
-
 }

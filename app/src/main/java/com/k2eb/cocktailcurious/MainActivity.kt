@@ -146,12 +146,11 @@ class MainActivity : AppCompatActivity() {
         var darkRum = Alcohol("Dark Rum")
         var tripleSec = Alcohol("Triple Sec")
         var cremeDeMenthe = Alcohol("Crème de Menthe")
-        var whiteCreme = Alcohol("White crème de Cacao")
+        var whiteCreme = Alcohol("White Crème de Cacao")
         var angosturaBitters = Alcohol("Angostura bitters")
 
         var lemon = Garnish("Lemon")
         var orange = Garnish("Orange")
-        var orangePeel = Garnish("Orange peel")
         var lime = Garnish("Lime")
         var maraschinoCherry = Garnish("Maraschino cherries")
         var maraschinoSyrup = Garnish("Maraschino cherry syrup")
@@ -160,14 +159,11 @@ class MainActivity : AppCompatActivity() {
         var granulatedSugar = Garnish("Granulated sugar")
         var mapleSyrup = Garnish("Maple syrup")
         var strawberries = Garnish ("Strawberries")
-        var strawberry = Garnish ("Strawberry")
         var sugarSyrup = Garnish ("Sugar syrup")
-        var freshEggWhite = Garnish ("Fresh egg white")
+        var eggWhite = Garnish ("Egg white")
 
         var cola = Mixer("Cola")
-        var lemonJuice = Mixer("Lemon juice")
         var orangeJuice = Mixer("Orange juice")
-        var limeJuice = Mixer("Lime juice")
         var sodaWater = Mixer("Soda water")
         var pineappleJuice = Mixer("Pineapple juice")
         var coconutCream = Mixer("Coconut cream")
@@ -203,7 +199,7 @@ class MainActivity : AppCompatActivity() {
 
         var blueLagoon = CocktailRecipe(
                 "Blue Lagoon",
-                R.drawable.the_blue_lagoon_cocktail,
+                R.drawable.blue_lagoon,
                 "A refreshing take on the classic blue lagoon.",
                 "A refreshing take on the classic blue lagoon with lemonade and " +
                         "fresh citrus juice. This boozy retro classic cocktail is perfect for parties.",
@@ -287,7 +283,7 @@ class MainActivity : AppCompatActivity() {
         var maiTaiEquipment = mutableListOf(shaker, strainer)
 
         var maiTai = CocktailRecipe(
-                "Mai tai",
+                "Mai Tai",
                 R.drawable.mai_tai,
                 "A strong, tart cocktail, with a prominent rum flavor.",
                 "Mix this classic cocktail for a party using fresh mint, white rum, " +
@@ -333,7 +329,7 @@ class MainActivity : AppCompatActivity() {
                 bourbon to 50,
                 angosturaBitters to -23,
                 mapleSyrup to -11,
-                orangePeel to -8,
+                orange to -26,
                 ice to -30
         )
 
@@ -362,10 +358,10 @@ class MainActivity : AppCompatActivity() {
         // Whiskey Sour Recipe
         var whiskeySourIngredients = mutableMapOf(
             bourbon to 50,
-            lemonJuice to 35,
-            sugarSyrup to 12.5,
+            lemon to -15,
+            sugarSyrup to 12,
             angosturaBitters to -19,
-            freshEggWhite to 0.5,
+            eggWhite to -25,
             lemon to -5,
             orange to -7,
             maraschinoCherry to -101,
@@ -374,10 +370,10 @@ class MainActivity : AppCompatActivity() {
         )
         var whiskeySourInstructions = mutableListOf(
             "Shake all of the ingredients (except for the lemon zest) hard with ice and strain " +
-                    "into an ice-filled glass.",
-            "Squeeze the lemon zest, shiny side down over the drink so the scented oils spray",
-            "across the surface. " +
-                    "Discard the zest, add the garnish and serve."
+            "into an ice-filled glass.",
+            "Squeeze the lemon zest, shiny side down over the drink so the scented oils spray" +
+            "across the surface. " ,
+            "Discard the zest, add the garnish and serve."
         )
 
         var whiskeySourEquipment = mutableListOf(shaker, strainer)
@@ -386,10 +382,10 @@ class MainActivity : AppCompatActivity() {
             "Whiskey Sour",
             R.drawable.whiskey_sour,
             "Perfecting this drink eludes mere mortals.",
-            "A well-execute Whiskey Sour has the perfect balance of sweet and sour" +
-                    "and highlights the wonderful flavours of a good whiskey." +
-                    "It has a silky smooth texture so it goes down easy and it's topped with a wonderful" +
-                    "meringue. If that's not how you would describe your Whiskey Sour, you're making it" +
+            "A well-executed Whiskey Sour has the perfect balance of sweet and sour " +
+                    "and highlights the wonderful flavours of a good whiskey. " +
+                    "It has a silky smooth texture so it goes down easy and it's topped with a wonderful " +
+                    "meringue. If that's not how you would describe your Whiskey Sour, you're making it " +
                     "wrong.",
             whiskeySourEquipment,
             whiskeySourIngredients,
@@ -402,16 +398,16 @@ class MainActivity : AppCompatActivity() {
             ice to -31,
             whiteRum to 100,
             lime to -15,
-            strawberry to -24,
+            strawberries to -24,
             lime to -7
 
         )
         var strawberryDaiquiriInstructions = mutableListOf(
-            "Shake all of the ingredients (except for the lemon zest) hard with ice and strain " +
-                    "into an ice-filled glass.",
-            "Squeeze the lemon zest, shiny side down over the drink so the scented oils spray",
-            "across the surface. " +
-                    "Discard the zest, add the garnish and serve."
+            "Blend the strawberries then push the resulting puree through a sieve to remove " +
+            "some of the seeds. ",
+            "Tip the sieved puree into the blender again and add the ice, rum and lime juice.",
+            "Blend again and divide the mixture between two glasses.",
+            "Place the slice of lime and strawberry halves on the side of the glass."
         )
 
         var strawberryDaiquiriEquipment = mutableListOf(blender)
@@ -420,7 +416,7 @@ class MainActivity : AppCompatActivity() {
             "Strawberry Daiquiri",
             R.drawable.strawberry_daiquiri,
             "A blended cocktail served as a boozy fresh fruit smoothie.",
-            "The Strawberry Daiquiri is the most popular variation of the classic" +
+            "The Strawberry Daiquiri is the most popular variation of the classic " +
                     "rum daiquiri. An excellent cocktail for those warmer summer days.",
             strawberryDaiquiriEquipment,
             strawberryDaiquiriIngredients,
@@ -459,12 +455,10 @@ class MainActivity : AppCompatActivity() {
             Ingredient.ingredientList.add(mint)
             Ingredient.ingredientList.add(granulatedSugar)
             Ingredient.ingredientList.add(mapleSyrup)
-            Ingredient.ingredientList.add(orangePeel)
+            Ingredient.ingredientList.add(strawberries)
 
             Ingredient.ingredientList.add(cola)
-            Ingredient.ingredientList.add(lemonJuice)
             Ingredient.ingredientList.add(orangeJuice)
-            Ingredient.ingredientList.add(limeJuice)
             Ingredient.ingredientList.add(sodaWater)
             Ingredient.ingredientList.add(pineappleJuice)
             Ingredient.ingredientList.add(coconutCream)

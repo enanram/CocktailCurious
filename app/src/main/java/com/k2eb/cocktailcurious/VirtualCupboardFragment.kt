@@ -25,8 +25,8 @@ class VirtualCupboardFragment : Fragment() {
         val flater = inflater.inflate(R.layout.fragment_virtual_cupboard, container, false)
         val letsGoButton = flater.findViewById<Button>(R.id.btn_lets_go)
         val clearButton = flater.findViewById<Button>(R.id.btn_clear_all)
-        val bigAddButton = flater.findViewById<Button>(R.id.btn_big_add)
-        val smallAddButton = flater.findViewById<Button>(R.id.btn_small_add)
+        val bigAddButton = flater.findViewById<ImageButton>(R.id.btn_big_add)
+        val smallAddButton = flater.findViewById<ImageButton>(R.id.btn_small_add)
 
         cupboardRecycler = flater.findViewById(R.id.rv_ingredients)
         cupboardRecycler.layoutManager = LinearLayoutManager(cupboardRecycler.context)
@@ -89,9 +89,9 @@ class VirtualCupboardFragment : Fragment() {
         }
         cupboardRecycler.adapter = CupboardRecyclerAdapter(cupboardList)
 
-        val btnBigAdd = view?.findViewById<Button>(R.id.btn_big_add)
+        val btnBigAdd = view?.findViewById<ImageButton>(R.id.btn_big_add)
         val txvPrompt = view?.findViewById<TextView>(R.id.txv_prompt)
-        val btnSmallAdd = view?.findViewById<Button>(R.id.btn_small_add)
+        val btnSmallAdd = view?.findViewById<ImageButton>(R.id.btn_small_add)
         val btnLetsGo = view?.findViewById<Button>(R.id.btn_lets_go)
         val btnClearAll = view?.findViewById<Button>(R.id.btn_clear_all)
         val rvIngredients = view?.findViewById<RecyclerView>(R.id.rv_ingredients)

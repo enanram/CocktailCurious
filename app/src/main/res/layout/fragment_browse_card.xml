@@ -52,6 +52,7 @@
                     android:textColor="@android:color/black"
                     android:textSize="22sp" />
                 <ImageView
+                    android:id="@+id/vegan_symbol"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@mipmap/icon_vegan_foreground"
@@ -84,7 +85,7 @@
                 android:id="@+id/cocktail_rating"
                 style="@style/customRatingBar"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_gravity="right"
                 android:clickable="false"/>
 

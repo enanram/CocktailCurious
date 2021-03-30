@@ -16,11 +16,11 @@
 
         <ImageView
             android:id="@+id/recipe_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:layout_marginStart="28dp"
             android:layout_marginTop="28dp"
             android:gravity="center_horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/the_blue_lagoon_cocktail" />
@@ -30,8 +30,8 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="28dp"
+            android:layout_marginEnd="14dp"
             app:layout_constraintBottom_toTopOf="@+id/recipe_share_icon"
-            app:layout_constraintStart_toEndOf="@+id/recipe_image"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@android:drawable/btn_star_big_on" />
@@ -40,7 +40,8 @@
             android:id="@+id/recipe_share_icon"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            app:layout_constraintStart_toEndOf="@+id/recipe_image"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="14dp"
             app:layout_constraintTop_toBottomOf="@id/recipe_favourite_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@android:drawable/ic_menu_share" />

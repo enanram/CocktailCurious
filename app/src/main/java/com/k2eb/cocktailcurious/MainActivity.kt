@@ -171,7 +171,7 @@ class MainActivity : AppCompatActivity() {
         // Equipment objects
         var shaker = Equipment("Shaker", R.drawable.shaker_silhoutte)
         var blender = Equipment("Blender", R.drawable.blender_silhouette)
-        var strainer = Equipment("Strainer", R.drawable.martini_silhouette)
+        var strainer = Equipment("Strainer", R.drawable.strainer_silhouette)
 
         // recipe objects
         var bluLagIngredients = mutableMapOf(
@@ -317,7 +317,8 @@ class MainActivity : AppCompatActivity() {
                         "green colour, this minty grasshopper cocktail will certainly look the part...",
                 grasshopperEquipment,
                 grasshopperIngredients,
-                grasshopperInstructions
+                grasshopperInstructions,
+                false
         )
 
         var oldFashionedIngredients = mutableMapOf(
@@ -340,7 +341,7 @@ class MainActivity : AppCompatActivity() {
 
         var oldFashioned = CocktailRecipe(
                 "Old fashioned",
-                R.drawable.martini_silhouette,
+                R.drawable.old_fashioned,
                 "A complex, boozy drink, perfect for sipping.",
                 "This is more than just some sweetened whiskey - it's a complex " +
                         "drink ideal for sipping at the end of the evening. " +

@@ -54,9 +54,13 @@ class RecipeActivity : AppCompatActivity() {
         updateFavouriteImage()
 
 
-//        iv_favourite.setOnClickListener {
-//            toggleFavouriteButton(iv_favourite)
-//        }
+        iv_favourite.setOnClickListener {
+            toggleFavouriteButton()
+        }
+
+        iv_share.setOnClickListener {
+            shareToSocials()
+        }
 
 
         tv_description.text = recipe.description
@@ -80,9 +84,9 @@ class RecipeActivity : AppCompatActivity() {
 
     private fun updateFavouriteImage() {
         if(recipe.isFavourite) {
-            iv_favourite.setImageResource(R.mipmap.icon_star_off_foreground)
-        } else {
             iv_favourite.setImageResource(R.mipmap.icon_star_on_foreground)
+        } else {
+            iv_favourite.setImageResource(R.mipmap.icon_star_off_foreground)
         }
     }
 

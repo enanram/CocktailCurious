@@ -385,6 +385,7 @@ class MainActivity : AppCompatActivity() {
             Ingredient.ingredientList.add(mint)
             Ingredient.ingredientList.add(granulatedSugar)
             Ingredient.ingredientList.add(mapleSyrup)
+            Ingredient.ingredientList.add(orangePeel)
 
             Ingredient.ingredientList.add(cola)
             Ingredient.ingredientList.add(lemonJuice)

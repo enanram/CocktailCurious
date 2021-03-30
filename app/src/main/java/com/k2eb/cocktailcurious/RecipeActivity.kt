@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.*
 import java.lang.NullPointerException
 
@@ -15,6 +16,7 @@ class RecipeActivity : AppCompatActivity() {
     lateinit var recipe: CocktailRecipe
     var defaultRecipeImage = R.drawable.martini_silhouette
     lateinit var iv_favourite: ImageView
+    lateinit var veganSymbol: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +36,7 @@ class RecipeActivity : AppCompatActivity() {
         var tv_equipment: TextView = findViewById(R.id.recipe_equipment)
         var ratBar_rating: RatingBar = findViewById(R.id.recipe_rating)
         var instructions: TextView = findViewById(R.id.recipe_instructions)
+        veganSymbol = findViewById(R.id.recipe_vegan_symbol)
 
 
         // adds the back button in the title bar
@@ -53,6 +56,7 @@ class RecipeActivity : AppCompatActivity() {
 
         updateFavouriteImage()
 
+        updateVeganSymbol()
 
         iv_favourite.setOnClickListener {
             toggleFavouriteButton()
@@ -87,6 +91,14 @@ class RecipeActivity : AppCompatActivity() {
             iv_favourite.setImageResource(R.mipmap.icon_star_on_foreground)
         } else {
             iv_favourite.setImageResource(R.mipmap.icon_star_off_foreground)
+        }
+    }
+
+    private fun updateVeganSymbol() {
+        if (recipe.isVegan) {
+            veganSymbol.visibility = View.VISIBLE
+        } else {
+            veganSymbol.visibility = View.GONE
         }
     }
 

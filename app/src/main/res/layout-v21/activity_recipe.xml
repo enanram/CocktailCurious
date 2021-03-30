@@ -31,10 +31,21 @@
             android:layout_height="50dp"
             android:layout_marginTop="28dp"
             android:layout_marginEnd="14dp"
-            app:layout_constraintBottom_toTopOf="@+id/recipe_share_icon"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@android:drawable/btn_star_big_on" />
+
+        <ImageView
+            android:id="@+id/recipe_vegan_symbol"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="14dp"
+            android:src="@mipmap/icon_vegan_foreground"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/recipe_favourite_icon"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
 
         <ImageView
             android:id="@+id/recipe_share_icon"
@@ -42,7 +53,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="14dp"
             android:layout_marginEnd="14dp"
-            app:layout_constraintTop_toBottomOf="@id/recipe_favourite_icon"
+            app:layout_constraintTop_toBottomOf="@id/recipe_vegan_symbol"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@android:drawable/ic_menu_share" />
 

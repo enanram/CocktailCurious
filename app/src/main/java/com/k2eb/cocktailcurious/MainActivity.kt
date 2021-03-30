@@ -203,7 +203,7 @@ class MainActivity : AppCompatActivity() {
 
         var blueLagoon = CocktailRecipe(
                 "Blue Lagoon",
-                R.drawable.the_blue_lagoon_cocktail,
+                R.drawable.blue_lagoon,
                 "A refreshing take on the classic blue lagoon.",
                 "A refreshing take on the classic blue lagoon with lemonade and " +
                         "fresh citrus juice. This boozy retro classic cocktail is perfect for parties.",
@@ -363,9 +363,9 @@ class MainActivity : AppCompatActivity() {
         var whiskeySourIngredients = mutableMapOf(
             bourbon to 50,
             lemonJuice to 35,
-            sugarSyrup to 12.5,
+            sugarSyrup to 12,
             angosturaBitters to -19,
-            freshEggWhite to 0.5,
+            freshEggWhite to -25,
             lemon to -5,
             orange to -7,
             maraschinoCherry to -101,

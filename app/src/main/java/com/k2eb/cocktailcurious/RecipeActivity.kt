@@ -128,7 +128,8 @@ class RecipeActivity : AppCompatActivity() {
             -21 -> "4 dashes of "
             -22 -> "5 dashes of "
             -23 -> "6 dashes of "
-            -24 -> "halved "
+            -24 -> "Halved "
+            -25 -> "Half of "
 
             -30 -> "Scoop of "
             -31 -> "200g of "

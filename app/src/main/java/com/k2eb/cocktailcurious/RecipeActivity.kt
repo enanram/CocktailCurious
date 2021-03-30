@@ -4,8 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.*
 import java.lang.NullPointerException
+import android.widget.Button
+import android.widget.RatingBar
+import android.widget.Toast
 
 // a default title for the activity, in case of difficulty getting the name from the database
 const val DEFAULT_RECIPE_NAME = "Recipe Name"
@@ -15,6 +19,7 @@ class RecipeActivity : AppCompatActivity() {
     lateinit var recipe: CocktailRecipe
     var defaultRecipeImage = R.drawable.martini_silhouette
     lateinit var iv_favourite: ImageView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,8 +37,9 @@ class RecipeActivity : AppCompatActivity() {
         var tv_description: TextView = findViewById(R.id.recipe_description)
         var tv_ingredients: TextView = findViewById(R.id.recipe_ingredients)
         var tv_equipment: TextView = findViewById(R.id.recipe_equipment)
-        var ratBar_rating: RatingBar = findViewById(R.id.recipe_rating)
         var instructions: TextView = findViewById(R.id.recipe_instructions)
+        val rBar = findViewById<RatingBar>(R.id.recipe_rating)
+        val btn = findViewById<Button>(R.id.recipe_submit)
 
 
         // adds the back button in the title bar
@@ -50,6 +56,8 @@ class RecipeActivity : AppCompatActivity() {
         tv_ingredients.text = formatIngredients(recipe.ingredients)
 
         tv_equipment.text = formatEquipment(recipe.equipment)
+
+
 
         updateFavouriteImage()
 
@@ -70,6 +78,12 @@ class RecipeActivity : AppCompatActivity() {
 
         instructions.text = formatInstructions(recipe.instructions)
 
+        rBar.numStars = recipe.rating
+        btn!!.setOnClickListener {
+            val getrating = rBar!!.rating
+            Toast.makeText(this, "Rating Submitted: $getrating", Toast.LENGTH_LONG).show()
+            recipe.rating = getrating.toInt()
+        }
 
     }
 
@@ -129,6 +143,7 @@ class RecipeActivity : AppCompatActivity() {
             -22 -> "5 dashes of "
             -23 -> "6 dashes of "
             -24 -> "halved "
+            -25 -> "Half of"
 
             -30 -> "Scoop of "
             -31 -> "200g of "
@@ -199,5 +214,11 @@ class RecipeActivity : AppCompatActivity() {
         }
         if (cocktailToReturn == null) throw NoSuchElementException("Recipe not found.")
         return cocktailToReturn!!
+    }
+
+    fun onCreateRecipeRating(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_recipe)
+
     }
 }

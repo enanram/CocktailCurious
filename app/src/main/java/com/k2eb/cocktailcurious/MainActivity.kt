@@ -363,9 +363,9 @@ class MainActivity : AppCompatActivity() {
         var whiskeySourIngredients = mutableMapOf(
             bourbon to 50,
             lemonJuice to 35,
-            sugarSyrup to 12.5,
+            sugarSyrup to 12,
             angosturaBitters to -19,
-            freshEggWhite to 0.5,
+            freshEggWhite to -25,
             lemon to -5,
             orange to -7,
             maraschinoCherry to -101,

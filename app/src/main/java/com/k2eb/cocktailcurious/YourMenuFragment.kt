@@ -1,22 +1,29 @@
 package com.k2eb.cocktailcurious
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.k2eb.cocktailcurious.MainActivity.Companion.cupboardList
 
 class YourMenuFragment : Fragment() {
 
     lateinit var recipeRecycler: RecyclerView
-    private var menuList = arrayListOf<String>()
+    private var yourMenu = mutableListOf<CocktailRecipe>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if(this::recipeRecycler.isInitialized) {
+            recipeRecycler.adapter = BrowseRecipesRecyclerAdapter(yourMenu)
+            recipeRecycler.invalidate()
+        }
     }
 
     override fun onCreateView(
@@ -24,23 +31,23 @@ class YourMenuFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        val flater = inflater.inflate(R.layout.fragment_your_menu, container, false)
-        recipeRecycler = flater.findViewById(R.id.yourmenu_results_recycler)
+        /**
+         * Inflate the layout for this fragment
+         */
+        val flater = inflater.inflate(R.layout.fragment_browse_recipes, container, false)
+        recipeRecycler = flater.findViewById(R.id.recipe_results_recycler)
         recipeRecycler.layoutManager = LinearLayoutManager(recipeRecycler.context)
-
-        // get data function
+        menuFilter()
+        recipeRecycler.adapter = BrowseRecipesRecyclerAdapter(yourMenu)
 
         return flater
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance() =
-                VirtualCupboardFragment().apply {
-                    arguments = Bundle().apply {
-                    }
-                }
+    private fun menuFilter() {
+        for (cocktail in CocktailRecipe.cocktailList){
+            if (cupboardList.containsAll(cocktail.ingredients.keys.toList())) {
+                yourMenu.add(cocktail)
+            }
+        }
     }
-
 }

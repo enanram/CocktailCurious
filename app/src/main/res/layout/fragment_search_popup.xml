@@ -28,7 +28,7 @@
                     android:layout_height="wrap_content"
                     app:iconifiedByDefault="false"
                     app:queryBackground="@null"
-                    android:clickable="false"/>
+                    android:clickable="true"/>
 
                 <NumberPicker
                     android:id="@+id/ingredient_type_picker"

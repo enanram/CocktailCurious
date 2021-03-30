@@ -50,11 +50,11 @@
             android:id="@+id/recipe_description"
             android:layout_width="360dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="16dp"
             android:text="a description of the cocktail that is longer than the blurb and maybe contains a wee joke?"
             android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recipe_image" />
 
@@ -68,16 +68,17 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/recipe_description" />
+
         <TextView
             android:id="@+id/recipe_ingredients"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:text="-list of ingredients"
+            app:layout_constraintHorizontal_bias="0.1"
             android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ing"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/ing" />
 
         <TextView
             android:id="@+id/equ"
@@ -89,15 +90,17 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/recipe_ingredients" />
+
         <TextView
             android:id="@+id/recipe_equipment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:text="-list of equipment"
             android:textSize="22sp"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/equ"/>
+            app:layout_constraintTop_toBottomOf="@+id/equ" />
 
         <TextView
             android:id="@+id/inst"
@@ -108,14 +111,17 @@
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
+
             app:layout_constraintTop_toBottomOf="@id/recipe_equipment" />
+
         <TextView
             android:id="@+id/recipe_instructions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:text="instructions"
             android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inst" />
 

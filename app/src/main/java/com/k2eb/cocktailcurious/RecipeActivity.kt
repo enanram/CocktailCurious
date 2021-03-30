@@ -130,6 +130,7 @@ class RecipeActivity : AppCompatActivity() {
             -23 -> "6 dashes of "
             -24 -> "Halved "
             -25 -> "Half of "
+            -26 -> "Small peel of an "
 
             -30 -> "Scoop of "
             -31 -> "200g of "

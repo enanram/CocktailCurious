@@ -151,7 +151,6 @@ class MainActivity : AppCompatActivity() {
 
         var lemon = Garnish("Lemon")
         var orange = Garnish("Orange")
-        var orangePeel = Garnish("Orange peel")
         var lime = Garnish("Lime")
         var maraschinoCherry = Garnish("Maraschino cherries")
         var maraschinoSyrup = Garnish("Maraschino cherry syrup")
@@ -160,14 +159,11 @@ class MainActivity : AppCompatActivity() {
         var granulatedSugar = Garnish("Granulated sugar")
         var mapleSyrup = Garnish("Maple syrup")
         var strawberries = Garnish ("Strawberries")
-        var strawberry = Garnish ("Strawberry")
         var sugarSyrup = Garnish ("Sugar syrup")
-        var freshEggWhite = Garnish ("Fresh egg white")
+        var eggWhite = Garnish ("Egg white")
 
         var cola = Mixer("Cola")
-        var lemonJuice = Mixer("Lemon juice")
         var orangeJuice = Mixer("Orange juice")
-        var limeJuice = Mixer("Lime juice")
         var sodaWater = Mixer("Soda water")
         var pineappleJuice = Mixer("Pineapple juice")
         var coconutCream = Mixer("Coconut cream")
@@ -333,7 +329,7 @@ class MainActivity : AppCompatActivity() {
                 bourbon to 50,
                 angosturaBitters to -23,
                 mapleSyrup to -11,
-                orangePeel to -8,
+                orange to -26,
                 ice to -30
         )
 
@@ -362,10 +358,10 @@ class MainActivity : AppCompatActivity() {
         // Whiskey Sour Recipe
         var whiskeySourIngredients = mutableMapOf(
             bourbon to 50,
-            lemonJuice to 35,
+            lemon to -15,
             sugarSyrup to 12,
             angosturaBitters to -19,
-            freshEggWhite to -25,
+            eggWhite to -25,
             lemon to -5,
             orange to -7,
             maraschinoCherry to -101,
@@ -402,7 +398,7 @@ class MainActivity : AppCompatActivity() {
             ice to -31,
             whiteRum to 100,
             lime to -15,
-            strawberry to -24,
+            strawberries to -24,
             lime to -7
 
         )

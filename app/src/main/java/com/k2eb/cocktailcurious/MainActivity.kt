@@ -396,8 +396,8 @@ class MainActivity : AppCompatActivity() {
             whiskeySourInstructions
         )
 
-        // Strawberry Daiquiri
-        var strawberryDaiquiriIngredient = mutableMapOf(
+        // Strawberry Daiquiri recipe
+        var strawberryDaiquiriIngredients = mutableMapOf(
             strawberries to -32,
             ice to -31,
             whiteRum to 100,

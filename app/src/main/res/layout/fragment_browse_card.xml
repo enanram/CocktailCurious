@@ -58,11 +58,12 @@
                     android:src="@mipmap/icon_vegan_foreground"
                     android:visibility="visible"/>
                 <ImageView
-                    android:="@+id/mocktail_symbol"
+                    android:id="@+id/mocktail_symbol"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@mipmap/icon_mocktail_foreground"
                     android:visibility="gone"/>
+
                 <ImageView
                     android:id="@+id/cocktail_card_favourite"
                     android:layout_width="30dp"

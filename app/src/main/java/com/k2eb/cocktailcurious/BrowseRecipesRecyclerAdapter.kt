@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RatingBar
@@ -37,7 +38,12 @@ class BrowseRecipesRecyclerAdapter(
         holder.ivImage.setImageResource(cocktails[position].image)
         holder.tvName.text = cocktails[position].name
         holder.tvBlurb.text = cocktails[position].blurb
-        holder.ratRatingBar.numStars = cocktails[position].rating
+
+        if (cocktails[position].rating == 0) {
+            holder.ratRatingBar.visibility = INVISIBLE
+        } else {
+            holder.ratRatingBar.numStars = cocktails[position].rating
+        }
 
         updateFavouriteImage(holder, position)
 

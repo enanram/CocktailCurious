@@ -13,7 +13,6 @@ import com.k2eb.cocktailcurious.Ingredient.Companion.cupboardList
 
 class VirtualCupboardFragment : Fragment() {
 
-    //lateinit var ingredientRecycler: RecyclerView
     lateinit var cupboardRecycler: RecyclerView
 
     override fun onCreateView(
@@ -61,14 +60,16 @@ class VirtualCupboardFragment : Fragment() {
             } else {
                 cupboardList.clear()
             }
-            cupboardRecycler.adapter = CupboardRecyclerAdapter(cupboardList)
         }
 
         return flater
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onResume() {
+        super.onResume()
+        if(this::cupboardRecycler.isInitialized) {
+            cupboardRecycler.adapter = CupboardRecyclerAdapter(cupboardList)
+        }
     }
 
     /**
@@ -82,7 +83,7 @@ class VirtualCupboardFragment : Fragment() {
         val btnLetsGo = view?.findViewById<Button>(R.id.btn_lets_go)
         val btnClearAll = view?.findViewById<Button>(R.id.btn_clear_all)
         val rvIngredients = view?.findViewById<RecyclerView>(R.id.rv_ingredients)
-        if (Ingredient.ingredientList.size == 0) {
+        if (cupboardList.size == 0) {
             btnBigAdd?.isClickable = true
             btnBigAdd?.visibility = View.VISIBLE
             txvPrompt?.visibility = View.VISIBLE
@@ -108,19 +109,4 @@ class VirtualCupboardFragment : Fragment() {
             rvIngredients?.visibility = View.VISIBLE
         }
     }
-
-    /*private fun popupIngredientSearch() {
-        // Inflate the display.
-        val flater: View = LayoutInflater.from(activity).inflate(R.layout.fragment_search_popup, null,false)
-        ingredientRecycler = flater.findViewById(R.id.ingredient_results)
-        val searchPopup = PopupWindow(ingredientRecycler)
-        // Apply the adapter to the RecyclerView
-        ingredientRecycler.adapter = IngredientRecyclerAdapter(MainActivity.makeIngredientsList())
-        // Allow the exit button to close the popup
-        val exitButton = flater.findViewById<Button>(R.id.btn_x)
-        exitButton.setOnClickListener {
-            searchPopup.dismiss()
-        }
-        searchPopup.showAtLocation(view, Gravity.CENTER, 0, 0)
-    }*/
 }

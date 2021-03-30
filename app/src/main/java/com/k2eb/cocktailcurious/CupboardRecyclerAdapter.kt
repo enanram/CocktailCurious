@@ -36,6 +36,7 @@ class CupboardRecyclerAdapter(
 
         }
 
+
     class IngredientViewHolder(itemView: View) :
             RecyclerView.ViewHolder(itemView) {
         var cardView: CardView = itemView.findViewById(R.id.card_cupboard)

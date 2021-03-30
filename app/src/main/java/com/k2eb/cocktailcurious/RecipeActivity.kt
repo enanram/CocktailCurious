@@ -54,10 +54,6 @@ class RecipeActivity : AppCompatActivity() {
         updateFavouriteImage()
 
 
-//        iv_favourite.setOnClickListener {
-//            toggleFavouriteButton(iv_favourite)
-//        }
-
 
         tv_description.text = recipe.description
         //tv_ingredients.setText(recipe.ingredients)

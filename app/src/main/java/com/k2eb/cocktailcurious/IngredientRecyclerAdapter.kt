@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.Filter
+import android.widget.Filterable
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
@@ -14,10 +15,10 @@ import kotlin.collections.ArrayList
 
 class IngredientRecyclerAdapter(
         private var ingredients: List<Ingredient>
-): RecyclerView.Adapter<IngredientRecyclerAdapter.IngredientViewHolder>() {
+): RecyclerView.Adapter<IngredientRecyclerAdapter.IngredientViewHolder>(), Filterable {
 
     lateinit var mcxt: Context
-    lateinit var filterList: MutableList<Ingredient>
+    var filterList = ingredients
 
     override fun getItemCount(): Int {
         return ingredients.size
@@ -33,16 +34,13 @@ class IngredientRecyclerAdapter(
     override fun onBindViewHolder(holder: IngredientViewHolder, position: Int) {
         holder.tvName.text = ingredients[position].name
 
-        holder.cardView.setOnClickListener {
-            holder.check.isChecked = ingredients[position].checked
-            holder.check.isChecked = !holder.check.isChecked
-            if (ingredients[position].checked) {
-                Ingredient.cupboardList.add(ingredients[position])
-            } else {
-                Ingredient.cupboardList.remove(ingredients[position])
-            }
-            notifyDataSetChanged()
+        holder.check.isChecked = ingredients[position].checked
+        if (ingredients[position].checked) {
+            Ingredient.cupboardList.add(ingredients[position])
+        } else {
+            Ingredient.cupboardList.remove(ingredients[position])
         }
+
     }
 
     class IngredientViewHolder(itemView: View) :
@@ -57,12 +55,11 @@ class IngredientRecyclerAdapter(
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charSearch = constraint.toString()
                 filterList = if (charSearch.isEmpty()) {
-                    Ingredient.ingredientList
-
+                    ingredients
                 } else {
                     val resultList = ArrayList<Ingredient>()
-                    for (item in Ingredient.ingredientList) {
-                        if (item.name?.toLowerCase(Locale.ROOT)!!.contains(charSearch.toLowerCase(Locale.ROOT))
+                    for (item in ingredients) {
+                        if (item.name!!.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(Locale.ROOT))
                         ) {
                             resultList.add(item)
                         }

@@ -246,7 +246,7 @@ class MainActivity : AppCompatActivity() {
 
         var mojito = CocktailRecipe(
                 "Mojito",
-                R.drawable.malibu_mojito,
+                R.drawable.mojito_drink,
                 "A refreshing mix of mint, lime and rum.",
                 "Mix this classic cocktail for a party using fresh mint, " +
                         "white rum, sugar, zesty lime and cooling soda water. Play " +
@@ -276,7 +276,7 @@ class MainActivity : AppCompatActivity() {
 
         var maiTai = CocktailRecipe(
                 "Mai tai",
-                R.drawable.mai_tai_drink,
+                R.drawable.mai_tai,
                 "A strong, tart cocktail, with a prominent rum flavor.",
                 "Mix this classic cocktail for a party using fresh mint, white rum, " +
                         "sugar, zesty lime and cooling soda water. Play with the quantities to " +
@@ -307,7 +307,7 @@ class MainActivity : AppCompatActivity() {
 
         var grasshopper = CocktailRecipe(
                 "Grasshopper",
-                R.drawable.grasshopper_drink,
+                R.drawable.grasshopper,
                 "A sweet, mint-flavored, after-dinner drink.",
                 "Looking for a spooky cocktail to serve at a Halloween party? With its bright " +
                         "green colour, this minty grasshopper cocktail will certainly look the part...",

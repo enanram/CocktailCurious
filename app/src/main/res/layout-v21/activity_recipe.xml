@@ -136,21 +136,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inst" />
 
-        <TextView
+        <Button
             android:id="@+id/recipe_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:text="@string/submit_view"
-            android:textSize="26sp"
+            android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/recipe_instructions" />
 
         <RatingBar
             android:id="@+id/recipe_rating"
-            style="@style/customRatingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="1"
+            android:saveEnabled="true"
+            android:progressDrawable="@drawable/custom_rating_bar"
             android:layout_marginTop="14dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/recipe_submit"

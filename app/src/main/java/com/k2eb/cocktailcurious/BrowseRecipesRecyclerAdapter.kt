@@ -79,6 +79,7 @@ class BrowseRecipesRecyclerAdapter(
         var ratRatingBar: RatingBar = itemView.findViewById(R.id.cocktail_rating)
         var ivFavourite: ImageView = itemView.findViewById(R.id.cocktail_card_favourite)
         var ivVegan: ImageView = itemView.findViewById(R.id.vegan_symbol)
+        var isMocktail: ImageView = itemView.findViewById(R.id.mocktail_symbol)
     }
 
 

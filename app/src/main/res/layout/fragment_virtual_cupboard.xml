@@ -14,7 +14,7 @@
         android:layout_marginBottom="10dp"
         android:text="@string/clear_all"
         android:textAllCaps="false"
-        app:backgroundTint="@color/cardview_dark_background"
+        app:backgroundTint="@color/purple_500"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:textSize="18sp"
@@ -28,13 +28,13 @@
         android:layout_marginBottom="10dp"
         android:text="@string/lets_go"
         android:textAllCaps="false"
-        app:backgroundTint="@color/cardview_dark_background"
+        app:backgroundTint="@color/purple_500"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textSize="18sp"
         android:visibility="visible"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_small_add"
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -42,9 +42,9 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="20dp"
         android:gravity="center"
-        android:background="@android:drawable/ic_menu_add"
+        android:src="@mipmap/purple_plus_foreground"
         android:visibility="visible"
-        app:backgroundTint="@color/black"
+        app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_lets_go"
         app:layout_constraintStart_toEndOf="@+id/btn_clear_all" />
@@ -60,13 +60,13 @@
         app:layout_constraintVertical_bias="0.836"
         tools:listitem="@layout/fragment_virtual_cupboard_card"
         android:visibility="visible" />
-    <Button
+    <ImageButton
         android:id="@+id/btn_big_add"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginTop="270dp"
-        android:background="@android:drawable/ic_menu_add"
-        app:backgroundTint="@color/black"
+        android:src="@mipmap/purple_plus_foreground"
+        app:backgroundTint="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/txv_prompt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,9 +77,10 @@
         android:id="@+id/txv_prompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:layout_marginBottom="280dp"
         android:text="@string/prompt"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_big_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"

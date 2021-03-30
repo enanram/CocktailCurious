@@ -13,7 +13,8 @@
         android:layout_gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_x">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -28,7 +29,7 @@
                     android:layout_height="wrap_content"
                     app:iconifiedByDefault="false"
                     app:queryBackground="@null"
-                    android:clickable="false"/>
+                    android:clickable="true"/>
 
                 <NumberPicker
                     android:id="@+id/ingredient_type_picker"
@@ -41,24 +42,26 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/ingredient_results"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:layoutManager="LinearLayoutManager"
             tools:context=".IngredientSearchResults"
-            tools:listitem="@layout/fragment_search_card" />
+            tools:listitem="@layout/fragment_search_card"
+
+            />
 
     </LinearLayout>
 
     <Button
         android:id="@+id/btn_x"
-        android:layout_width="60dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
-        android:background="@android:drawable/ic_menu_close_clear_cancel"
-        app:backgroundTint="@color/black"
+        app:backgroundTint="@color/purple_500"
+        android:text="@android:string/ok"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="1" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

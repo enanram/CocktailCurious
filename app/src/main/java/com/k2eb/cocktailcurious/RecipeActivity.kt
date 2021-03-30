@@ -19,6 +19,7 @@ class RecipeActivity : AppCompatActivity() {
     lateinit var recipe: CocktailRecipe
     var defaultRecipeImage = R.drawable.martini_silhouette
     lateinit var iv_favourite: ImageView
+    lateinit var veganSymbol: ImageView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +39,7 @@ class RecipeActivity : AppCompatActivity() {
         var tv_ingredients: TextView = findViewById(R.id.recipe_ingredients)
         var tv_equipment: TextView = findViewById(R.id.recipe_equipment)
         var instructions: TextView = findViewById(R.id.recipe_instructions)
+        veganSymbol = findViewById(R.id.recipe_vegan_symbol)
         val rBar = findViewById<RatingBar>(R.id.recipe_rating)
         val btn = findViewById<Button>(R.id.recipe_submit)
 
@@ -57,10 +59,9 @@ class RecipeActivity : AppCompatActivity() {
 
         tv_equipment.text = formatEquipment(recipe.equipment)
 
-
-
         updateFavouriteImage()
 
+        updateVeganSymbol()
 
         iv_favourite.setOnClickListener {
             toggleFavouriteButton()
@@ -101,6 +102,14 @@ class RecipeActivity : AppCompatActivity() {
             iv_favourite.setImageResource(R.mipmap.icon_star_on_foreground)
         } else {
             iv_favourite.setImageResource(R.mipmap.icon_star_off_foreground)
+        }
+    }
+
+    private fun updateVeganSymbol() {
+        if (recipe.isVegan) {
+            veganSymbol.visibility = View.VISIBLE
+        } else {
+            veganSymbol.visibility = View.GONE
         }
     }
 

@@ -143,15 +143,18 @@ class MainActivity : AppCompatActivity() {
         var tripleSec = Alcohol("Triple sec")
         var cremeDeMenthe = Alcohol("Crème de menthe")
         var whiteCreme = Alcohol("White crème de cacao")
+        var angosturaBitters = Alcohol("Angostura bitters")
 
         var lemon = Garnish("Lemon")
         var orange = Garnish("Orange")
+        var orangePeel = Garnish("Orange peel")
         var lime = Garnish("Lime")
         var maraschinoCherry = Garnish("Maraschino cherries")
         var maraschinoSyrup = Garnish("Maraschino cherry syrup")
         var pineapple = Garnish("Pineapple")
         var mint = Garnish("Mint")
         var granulatedSugar = Garnish("Granulated Sugar")
+        var mapleSyrup = Garnish("Maple syrup")
 
         var cola = Mixer("Cola")
         var lemonJuice = Mixer("Lemon juice")
@@ -167,7 +170,8 @@ class MainActivity : AppCompatActivity() {
 
         // Equipment objects
         var shaker = Equipment("Shaker", R.drawable.shaker_silhoutte)
-        val blender = Equipment("Blender", R.drawable.blender_silhouette)
+        var blender = Equipment("Blender", R.drawable.blender_silhouette)
+        var strainer = Equipment("Strainer", R.drawable.martini_silhouette)
 
         // recipe objects
         var bluLagIngredients = mutableMapOf(
@@ -187,7 +191,7 @@ class MainActivity : AppCompatActivity() {
                 "Top up the glasses with the soda water and gently stir, " +
                         "then garnish with the maraschino cherries."
         )
-        var bluLagEquipment = mutableListOf(shaker)
+        var bluLagEquipment = mutableListOf(shaker, strainer)
 
         var blueLagoon = CocktailRecipe(
                 "Blue Lagoon",
@@ -242,11 +246,11 @@ class MainActivity : AppCompatActivity() {
                 "Top up with soda water, garnish with mint and serve."
         )
 
-        var mojitoEquipment = mutableListOf(shaker)
+        var mojitoEquipment = mutableListOf(shaker, strainer)
 
         var mojito = CocktailRecipe(
                 "Mojito",
-                R.drawable.malibu_mojito,
+                R.drawable.mojito,
                 "A refreshing mix of mint, lime and rum.",
                 "Mix this classic cocktail for a party using fresh mint, " +
                         "white rum, sugar, zesty lime and cooling soda water. Play " +
@@ -272,11 +276,11 @@ class MainActivity : AppCompatActivity() {
                         "liquid and garnish with a cherry."
         )
 
-        var maiTaiEquipment = mutableListOf(shaker)
+        var maiTaiEquipment = mutableListOf(shaker, strainer)
 
         var maiTai = CocktailRecipe(
                 "Mai tai",
-                R.drawable.mai_tai_drink,
+                R.drawable.mai_tai,
                 "A strong, tart cocktail, with a prominent rum flavor.",
                 "Mix this classic cocktail for a party using fresh mint, white rum, " +
                         "sugar, zesty lime and cooling soda water. Play with the quantities to " +
@@ -303,11 +307,11 @@ class MainActivity : AppCompatActivity() {
                         "with the chocolate-dipped sprig of mint."
         )
 
-        var grasshopperEquipment = mutableListOf(shaker)
+        var grasshopperEquipment = mutableListOf(shaker, strainer)
 
         var grasshopper = CocktailRecipe(
                 "Grasshopper",
-                R.drawable.grasshopper_drink,
+                R.drawable.grasshopper,
                 "A sweet, mint-flavored, after-dinner drink.",
                 "Looking for a spooky cocktail to serve at a Halloween party? With its bright " +
                         "green colour, this minty grasshopper cocktail will certainly look the part...",
@@ -316,12 +320,43 @@ class MainActivity : AppCompatActivity() {
                 grasshopperInstructions
         )
 
+        var oldFashionedIngredients = mutableMapOf(
+                bourbon to 50,
+                angosturaBitters to -23,
+                mapleSyrup to -11,
+                orangePeel to -8,
+                ice to -30
+        )
+
+        var oldFashionedInstructions = mutableListOf(
+                "Add the bourbon, Angostura bitters, maple syrup and ice to a tall glass.",
+                "Stir without agitating until condensation forms on the outside of the glass.",
+                "Strain over fresh ice into an old fashioned glass.",
+                "Squeeze the orange peel over the drink so that the oils spray out. You can light" +
+                        " the oil for some extra flair. Then add the peel into the drink."
+        )
+
+        var oldFashionedEquipment = mutableListOf(strainer)
+
+        var oldFashioned = CocktailRecipe(
+                "Old fashioned",
+                R.drawable.martini_silhouette,
+                "A complex, boozy drink, perfect for sipping.",
+                "This is more than just some sweetened whiskey - it's a complex " +
+                        "drink ideal for sipping at the end of the evening. " +
+                        "Try to use the best bourbon you can find.",
+                oldFashionedEquipment,
+                oldFashionedIngredients,
+                oldFashionedInstructions
+        )
+
         fun addCocktailsToList() {
             CocktailRecipe.cocktailList.add(blueLagoon)
             CocktailRecipe.cocktailList.add(pinaColada)
             CocktailRecipe.cocktailList.add(mojito)
             CocktailRecipe.cocktailList.add(maiTai)
             CocktailRecipe.cocktailList.add(grasshopper)
+            CocktailRecipe.cocktailList.add(oldFashioned)
         }
 
         fun addIngredientsToList() {
@@ -334,6 +369,7 @@ class MainActivity : AppCompatActivity() {
             Ingredient.ingredientList.add(tripleSec)
             Ingredient.ingredientList.add(cremeDeMenthe)
             Ingredient.ingredientList.add(whiteCreme)
+            Ingredient.ingredientList.add(angosturaBitters)
 
             Ingredient.ingredientList.add(lemon)
             Ingredient.ingredientList.add(orange)
@@ -343,6 +379,7 @@ class MainActivity : AppCompatActivity() {
             Ingredient.ingredientList.add(pineapple)
             Ingredient.ingredientList.add(mint)
             Ingredient.ingredientList.add(granulatedSugar)
+            Ingredient.ingredientList.add(mapleSyrup)
 
             Ingredient.ingredientList.add(cola)
             Ingredient.ingredientList.add(lemonJuice)
@@ -360,6 +397,7 @@ class MainActivity : AppCompatActivity() {
         fun addEquipmentToList() {
             Equipment.equipmentList.add(shaker)
             Equipment.equipmentList.add(blender)
+            Equipment.equipmentList.add(strainer)
         }
     }
 

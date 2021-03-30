@@ -29,7 +29,6 @@ class IngredientSearchFragment : Fragment() {
         val exitBtn = flater.findViewById<Button>(R.id.btn_x)
         exitBtn.setOnClickListener{
             val transaction = this.fragmentManager?.beginTransaction()?.replace(R.id.fragment_container, VirtualCupboardFragment())
-            transaction?.addToBackStack(null)
             (activity as MainActivity).setTitleBar("Virtual Cupboard")
             transaction?.commit()
         }

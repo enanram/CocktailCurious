@@ -14,7 +14,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class IngredientRecyclerAdapter(
-        private var ingredients: List<Ingredient>
+        private var ingredients: MutableList<Ingredient>
 ): RecyclerView.Adapter<IngredientRecyclerAdapter.IngredientViewHolder>(), Filterable {
 
     lateinit var mcxt: Context
@@ -35,13 +35,11 @@ class IngredientRecyclerAdapter(
         holder.tvName.text = ingredients[position].name
 
         holder.check.isChecked = ingredients[position].checked
-        if (ingredients[position].checked) {
-            Ingredient.cupboardList.add(ingredients[position])
-        } else {
-            Ingredient.cupboardList.remove(ingredients[position])
+        holder.cardView.setOnClickListener{
+            holder.check.isChecked = !holder.check.isChecked
+            ingredients[position].checkToCupboard()
         }
-
-    }
+   }
 
     class IngredientViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {

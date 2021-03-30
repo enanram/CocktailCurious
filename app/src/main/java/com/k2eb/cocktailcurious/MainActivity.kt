@@ -133,6 +133,10 @@ class MainActivity : AppCompatActivity() {
      * fragments and activities.
      */
     companion object {
+
+
+        var cupboardList = mutableListOf<Ingredient>()
+
         // ingredient objects
         var vodka = Alcohol("Vodka")
         var gin = Alcohol("Gin")
@@ -400,7 +404,4 @@ class MainActivity : AppCompatActivity() {
             Equipment.equipmentList.add(strainer)
         }
     }
-
-
-
 }

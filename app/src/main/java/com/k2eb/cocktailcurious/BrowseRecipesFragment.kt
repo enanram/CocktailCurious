@@ -51,7 +51,6 @@ class BrowseRecipesFragment : Fragment() {
         return flater
     }
 
-
     companion object {
         @JvmStatic
         fun newInstance() =

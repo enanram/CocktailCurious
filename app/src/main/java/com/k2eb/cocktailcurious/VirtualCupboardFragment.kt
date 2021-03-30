@@ -8,7 +8,7 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.k2eb.cocktailcurious.Ingredient.Companion.cupboardList
+import com.k2eb.cocktailcurious.MainActivity.Companion.cupboardList
 
 
 class VirtualCupboardFragment : Fragment() {
@@ -23,15 +23,13 @@ class VirtualCupboardFragment : Fragment() {
 
         // Inflate the layout for this fragment
         val flater = inflater.inflate(R.layout.fragment_virtual_cupboard, container, false)
-        cupboardRecycler = flater.findViewById(R.id.rv_ingredients)
-        cupboardRecycler.layoutManager = LinearLayoutManager(cupboardRecycler.context)
-        cupboardRecycler.adapter = CupboardRecyclerAdapter(cupboardList)
-
         val letsGoButton = flater.findViewById<Button>(R.id.btn_lets_go)
         val clearButton = flater.findViewById<Button>(R.id.btn_clear_all)
         val bigAddButton = flater.findViewById<Button>(R.id.btn_big_add)
         val smallAddButton = flater.findViewById<Button>(R.id.btn_small_add)
 
+        cupboardRecycler = flater.findViewById(R.id.rv_ingredients)
+        cupboardRecycler.layoutManager = LinearLayoutManager(cupboardRecycler.context)
         setCupboardView(flater)
 
         letsGoButton.setOnClickListener {
@@ -58,8 +56,12 @@ class VirtualCupboardFragment : Fragment() {
             if (cupboardList.size == 0) {
                 Toast.makeText(activity, "Your cupboard is empty.", Toast.LENGTH_LONG).show()
             } else {
+                for (ingr in Ingredient.ingredientList){
+                    ingr.checked = false
+                }
                 cupboardList.clear()
             }
+            setCupboardView(flater)
         }
 
         return flater
@@ -69,6 +71,7 @@ class VirtualCupboardFragment : Fragment() {
         super.onResume()
         if(this::cupboardRecycler.isInitialized) {
             cupboardRecycler.adapter = CupboardRecyclerAdapter(cupboardList)
+            cupboardRecycler.invalidate()
         }
     }
 
@@ -77,6 +80,15 @@ class VirtualCupboardFragment : Fragment() {
      * size of the cupboardList
      */
     private fun setCupboardView(view: View?) {
+
+        for (ing in Ingredient.ingredientList) {
+           if (cupboardList.contains(ing) and ing.checked) {
+               continue
+           } else if (!cupboardList.contains(ing) and ing.checked)
+               cupboardList.add(ing)
+        }
+        cupboardRecycler.adapter = CupboardRecyclerAdapter(cupboardList)
+
         val btnBigAdd = view?.findViewById<Button>(R.id.btn_big_add)
         val txvPrompt = view?.findViewById<TextView>(R.id.txv_prompt)
         val btnSmallAdd = view?.findViewById<Button>(R.id.btn_small_add)

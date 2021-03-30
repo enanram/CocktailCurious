@@ -24,15 +24,17 @@
                     android:id="@+id/ingredient_search"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    app:queryHint="Search by name"
+                    app:queryHint="(Coming Soon)"
                     android:layout_height="wrap_content"
                     app:iconifiedByDefault="false"
-                    app:queryBackground="@null" />
+                    app:queryBackground="@null"
+                    android:clickable="false"/>
 
                 <NumberPicker
                     android:id="@+id/ingredient_type_picker"
                     android:layout_width="120dp"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:visibility="gone"/>
 
             </LinearLayout>
 
@@ -40,8 +42,6 @@
             android:id="@+id/ingredient_results"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
             app:layoutManager="LinearLayoutManager"
             tools:context=".IngredientSearchResults"
             tools:listitem="@layout/fragment_search_card" />
@@ -53,6 +53,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
         android:background="@android:drawable/ic_menu_close_clear_cancel"
         app:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"

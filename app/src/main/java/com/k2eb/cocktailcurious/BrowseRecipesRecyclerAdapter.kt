@@ -41,6 +41,8 @@ class BrowseRecipesRecyclerAdapter(
 
         updateFavouriteImage(holder, position)
 
+        if (!cocktails[position].isVegan) holder.ivVegan.visibility = View.INVISIBLE
+
         holder.cardView.setOnClickListener {
             val intent = Intent(mcxt, RecipeActivity::class.java)
             intent.putExtra("recipe index", cocktails[position].name)
@@ -76,6 +78,7 @@ class BrowseRecipesRecyclerAdapter(
         var tvBlurb: TextView = itemView.findViewById(R.id.cocktail_blurb)
         var ratRatingBar: RatingBar = itemView.findViewById(R.id.cocktail_rating)
         var ivFavourite: ImageView = itemView.findViewById(R.id.cocktail_card_favourite)
+        var ivVegan: ImageView = itemView.findViewById(R.id.vegan_symbol)
     }
 
 

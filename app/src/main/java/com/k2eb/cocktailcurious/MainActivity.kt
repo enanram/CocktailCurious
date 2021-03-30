@@ -142,11 +142,11 @@ class MainActivity : AppCompatActivity() {
         var gin = Alcohol("Gin")
         var bourbon = Alcohol("Bourbon")
         var blueCuracao = Alcohol("Blue Curacao")
-        var whiteRum = Alcohol("White rum")
-        var darkRum = Alcohol("Dark rum")
-        var tripleSec = Alcohol("Triple sec")
-        var cremeDeMenthe = Alcohol("Crème de menthe")
-        var whiteCreme = Alcohol("White crème de cacao")
+        var whiteRum = Alcohol("White Rum")
+        var darkRum = Alcohol("Dark Rum")
+        var tripleSec = Alcohol("Triple Sec")
+        var cremeDeMenthe = Alcohol("Crème de Menthe")
+        var whiteCreme = Alcohol("White crème de Cacao")
         var angosturaBitters = Alcohol("Angostura bitters")
 
         var lemon = Garnish("Lemon")
@@ -157,8 +157,12 @@ class MainActivity : AppCompatActivity() {
         var maraschinoSyrup = Garnish("Maraschino cherry syrup")
         var pineapple = Garnish("Pineapple")
         var mint = Garnish("Mint")
-        var granulatedSugar = Garnish("Granulated Sugar")
+        var granulatedSugar = Garnish("Granulated sugar")
         var mapleSyrup = Garnish("Maple syrup")
+        var strawberries = Garnish ("Strawberries")
+        var strawberry = Garnish ("Strawberry")
+        var sugarSyrup = Garnish ("Sugar syrup")
+        var freshEggWhite = Garnish ("Fresh egg white")
 
         var cola = Mixer("Cola")
         var lemonJuice = Mixer("Lemon juice")
@@ -175,7 +179,7 @@ class MainActivity : AppCompatActivity() {
         // Equipment objects
         var shaker = Equipment("Shaker", R.drawable.shaker_silhoutte)
         var blender = Equipment("Blender", R.drawable.blender_silhouette)
-        var strainer = Equipment("Strainer", R.drawable.martini_silhouette)
+        var strainer = Equipment("Strainer", R.drawable.strainer_silhouette)
 
         // recipe objects
         var bluLagIngredients = mutableMapOf(
@@ -321,7 +325,8 @@ class MainActivity : AppCompatActivity() {
                         "green colour, this minty grasshopper cocktail will certainly look the part...",
                 grasshopperEquipment,
                 grasshopperIngredients,
-                grasshopperInstructions
+                grasshopperInstructions,
+                false
         )
 
         var oldFashionedIngredients = mutableMapOf(
@@ -344,7 +349,7 @@ class MainActivity : AppCompatActivity() {
 
         var oldFashioned = CocktailRecipe(
                 "Old fashioned",
-                R.drawable.martini_silhouette,
+                R.drawable.old_fashioned,
                 "A complex, boozy drink, perfect for sipping.",
                 "This is more than just some sweetened whiskey - it's a complex " +
                         "drink ideal for sipping at the end of the evening. " +
@@ -354,6 +359,74 @@ class MainActivity : AppCompatActivity() {
                 oldFashionedInstructions
         )
 
+        // Whiskey Sour Recipe
+        var whiskeySourIngredients = mutableMapOf(
+            bourbon to 50,
+            lemonJuice to 35,
+            sugarSyrup to 12.5,
+            angosturaBitters to -19,
+            freshEggWhite to 0.5,
+            lemon to -5,
+            orange to -7,
+            maraschinoCherry to -101,
+            ice to -30
+
+        )
+        var whiskeySourInstructions = mutableListOf(
+            "Shake all of the ingredients (except for the lemon zest) hard with ice and strain " +
+                    "into an ice-filled glass.",
+            "Squeeze the lemon zest, shiny side down over the drink so the scented oils spray",
+            "across the surface. " +
+                    "Discard the zest, add the garnish and serve."
+        )
+
+        var whiskeySourEquipment = mutableListOf(shaker, strainer)
+
+        var whiskeySour = CocktailRecipe(
+            "Whiskey Sour",
+            R.drawable.whiskey_sour,
+            "Perfecting this drink eludes mere mortals.",
+            "A well-execute Whiskey Sour has the perfect balance of sweet and sour" +
+                    "and highlights the wonderful flavours of a good whiskey." +
+                    "It has a silky smooth texture so it goes down easy and it's topped with a wonderful" +
+                    "meringue. If that's not how you would describe your Whiskey Sour, you're making it" +
+                    "wrong.",
+            whiskeySourEquipment,
+            whiskeySourIngredients,
+            whiskeySourInstructions
+        )
+
+        // Strawberry Daiquiri recipe
+        var strawberryDaiquiriIngredients = mutableMapOf(
+            strawberries to -32,
+            ice to -31,
+            whiteRum to 100,
+            lime to -15,
+            strawberry to -24,
+            lime to -7
+
+        )
+        var strawberryDaiquiriInstructions = mutableListOf(
+            "Shake all of the ingredients (except for the lemon zest) hard with ice and strain " +
+                    "into an ice-filled glass.",
+            "Squeeze the lemon zest, shiny side down over the drink so the scented oils spray",
+            "across the surface. " +
+                    "Discard the zest, add the garnish and serve."
+        )
+
+        var strawberryDaiquiriEquipment = mutableListOf(blender)
+
+        var strawberryDaiquiri = CocktailRecipe(
+            "Strawberry Daiquiri",
+            R.drawable.strawberry_daiquiri,
+            "A blended cocktail served as a boozy fresh fruit smoothie.",
+            "The Strawberry Daiquiri is the most popular variation of the classic" +
+                    "rum daiquiri. An excellent cocktail for those warmer summer days.",
+            strawberryDaiquiriEquipment,
+            strawberryDaiquiriIngredients,
+            strawberryDaiquiriInstructions
+        )
+
         fun addCocktailsToList() {
             CocktailRecipe.cocktailList.add(blueLagoon)
             CocktailRecipe.cocktailList.add(pinaColada)
@@ -361,6 +434,8 @@ class MainActivity : AppCompatActivity() {
             CocktailRecipe.cocktailList.add(maiTai)
             CocktailRecipe.cocktailList.add(grasshopper)
             CocktailRecipe.cocktailList.add(oldFashioned)
+            CocktailRecipe.cocktailList.add(whiskeySour)
+            CocktailRecipe.cocktailList.add(strawberryDaiquiri)
         }
 
         fun addIngredientsToList() {
@@ -384,6 +459,7 @@ class MainActivity : AppCompatActivity() {
             Ingredient.ingredientList.add(mint)
             Ingredient.ingredientList.add(granulatedSugar)
             Ingredient.ingredientList.add(mapleSyrup)
+            Ingredient.ingredientList.add(orangePeel)
 
             Ingredient.ingredientList.add(cola)
             Ingredient.ingredientList.add(lemonJuice)

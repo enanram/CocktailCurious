@@ -54,6 +54,14 @@ class RecipeActivity : AppCompatActivity() {
         updateFavouriteImage()
 
 
+        iv_favourite.setOnClickListener {
+            toggleFavouriteButton()
+        }
+
+        iv_share.setOnClickListener {
+            shareToSocials()
+        }
+
 
         tv_description.text = recipe.description
         //tv_ingredients.setText(recipe.ingredients)
@@ -76,9 +84,9 @@ class RecipeActivity : AppCompatActivity() {
 
     private fun updateFavouriteImage() {
         if(recipe.isFavourite) {
-            iv_favourite.setImageResource(R.mipmap.icon_star_off_foreground)
-        } else {
             iv_favourite.setImageResource(R.mipmap.icon_star_on_foreground)
+        } else {
+            iv_favourite.setImageResource(R.mipmap.icon_star_off_foreground)
         }
     }
 
@@ -120,8 +128,11 @@ class RecipeActivity : AppCompatActivity() {
             -21 -> "4 dashes of "
             -22 -> "5 dashes of "
             -23 -> "6 dashes of "
+            -24 -> "halved "
 
             -30 -> "Scoop of "
+            -31 -> "200g of "
+            -32 -> "500g of "
 
             -101 -> "One "
             -102 -> "Two "

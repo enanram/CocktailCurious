@@ -11,7 +11,8 @@ class CocktailRecipe(
 		var description: String,
 		var equipment: MutableList<Equipment>,
 		var ingredients: MutableMap<Ingredient, Int>,
-		var instructions: MutableList<String>
+		var instructions: MutableList<String>,
+		var isVegan: Boolean = true
 )  {
 	var isFavourite = false
 	var rating = 0

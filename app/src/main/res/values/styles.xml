@@ -2,7 +2,7 @@
 <resources>
 
     <style name="customRatingBar" parent="@android:style/Widget.RatingBar">
-        <item name="android:progressDrawable">@drawable/rating_glass_empty</item>
-        <item name="android:indeterminateDrawable">@drawable/rating_glass_full</item>
+        <item name="android:progressDrawable">@drawable/rating_glass_full</item>
+        <item name="android:indeterminateDrawable">@drawable/rating_glass_empty</item>
     </style>
 </resources>
